@@ -1,2 +1,2 @@
 # SistemaContoleRecomendacoes
-## Sistema de Controle de Recomendação 
+## Sistema de Controle de Recomendação da Membros
