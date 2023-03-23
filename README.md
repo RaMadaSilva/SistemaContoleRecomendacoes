@@ -1,6 +1,6 @@
 # SistemaContoleRecomendacoes
 ## Sistema de Controle de Recomendação da Membros
-* Castro de Membors
+>* Castro de Membors
 Existem duas classes de Mambros, os Batizados e os não Batizados, dos membros deve ser feito antes da solicitação da Recomendação
 * Castro da Igreja 
 os Membros serão recomendados para uma igreja, logo as igrejas devem ser previamente Registados no sistema. 
