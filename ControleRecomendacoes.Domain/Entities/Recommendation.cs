@@ -14,6 +14,7 @@ public abstract class Recommendation : Entity
         LastName = lastName;
         TelefoneNumber = telefoneNumber;
         State = ERecommendationState.valido;
+        EntryDate = DateTime.Now;
         DevolutionDate = null;
     }
 
@@ -21,5 +22,6 @@ public abstract class Recommendation : Entity
     public string LastName { get; private set; }
     public string TelefoneNumber { get; private set; }
     public ERecommendationState State { get; private set; }
+    public DateTime EntryDate { get; private set; }
     public DateTime? DevolutionDate { get; private set; }
 }
