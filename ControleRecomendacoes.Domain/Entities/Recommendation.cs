@@ -41,4 +41,9 @@ public abstract class Recommendation : Entity
 
     public abstract DateTime UpdateRecommendationDate();
 
+    public void GetDevolutionDate(DateTime date)
+    {
+        DevolutionDate = date;
+    }
+
 }
