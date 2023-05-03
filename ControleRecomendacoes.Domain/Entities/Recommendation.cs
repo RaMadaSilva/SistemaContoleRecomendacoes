@@ -46,4 +46,15 @@ public abstract class Recommendation : Entity
         DevolutionDate = date;
     }
 
+    public void UpdateStateDevolvido()
+    {
+        if (DevolutionDate != null)
+            State = ERecommendationState.Devolvido;
+    }
+    public void UpdateStateInvalido()
+    {
+        if (ValidateDate >= DateTime.Now)
+            State = ERecommendationState.Invalido;
+    }
+
 }
