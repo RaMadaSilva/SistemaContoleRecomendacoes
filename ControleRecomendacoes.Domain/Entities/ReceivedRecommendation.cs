@@ -14,21 +14,20 @@ public class ReceivedRecommendation : Recommendation
                 DateTime recommendationDate,
                 string originChurche,
                 string localChurcheOrigin,
-                string actualResidence,
-                string attachmentRecommendationUrl)
+                string actualResidence)
                 : base(firstName, lastName, telefoneNumber)
     {
         OriginChurche = originChurche;
         LocalChurcheOrigin = localChurcheOrigin;
         ActualResidence = actualResidence;
-        AttachmentRecommendationUrl = attachmentRecommendationUrl;
+        AttachmentRecommendationUrl = null;
         _recomandationDate = recommendationDate;
     }
 
     public string OriginChurche { get; private set; }
     public string LocalChurcheOrigin { get; private set; }
     public string ActualResidence { get; private set; }
-    public string AttachmentRecommendationUrl { get; private set; }
+    public string? AttachmentRecommendationUrl { get; private set; }
 
     public override DateTime UpdateRecommendationDate()
     {

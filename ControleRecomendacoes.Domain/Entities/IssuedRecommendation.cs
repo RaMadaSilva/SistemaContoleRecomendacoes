@@ -8,18 +8,18 @@ public class IssuedRecommendation : Recommendation
             string lastName,
             string telefoneNumber,
             string destinyChurch,
-            string destinyLacality,
-            string recommendationGeneratedUrl)
+            string destinyLacality)
                 : base(firstName, lastName, telefoneNumber)
     {
         DestinyChurch = destinyChurch;
         DestinyLacality = destinyLacality;
-        RecommendationGeneratedUrl = recommendationGeneratedUrl;
+        RecommendationGeneratedUrl = null;
+
     }
 
     public string DestinyChurch { get; private set; }
     public string DestinyLacality { get; private set; }
-    public string RecommendationGeneratedUrl { get; private set; }
+    public string? RecommendationGeneratedUrl { get; private set; }
 
     public override DateTime UpdateRecommendationDate()
     {
