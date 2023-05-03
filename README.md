@@ -18,25 +18,25 @@ Numero de Telefone do Membro, Estado da carta(O Estado da carta pode ser: valido
 
 ### Algumas Regras
 
-A Data de Validade da carta de recomendação Expedida deve ser calculado no sistema adicionando 6 meses a data da recomendação, caso a data de Expiração seja igual ou superior a data actual o estado da carta deve alterar para invalido.
+A Data de Validade da carta de recomendação Expedida deve ser calculado no sistema adicionando 6 meses a data da recomendação, caso a data de Expiração seja igual ou superior a data actual o estado da carta deve alterar para invalido. -- DONE
 
-Ao Registar uma carta o sistema deve verificar se a data actual é superio a data de validade da Carta, caso seja sueprior não deve ser possivel Registar a recepção, e quando a data de validade é superior a data actual o sistema deve tambem mudar o estado da Carta de Recomendação recebido.
+Ao Registar uma carta o sistema deve verificar se a data actual é superio a data de validade da Carta, caso seja superior não deve ser possivel Registar a recepção, e quando a data de validade é superior a data actual o sistema deve tambem mudar o estado da Carta de Recomendação recebido. - DONE
 
-Quando o membro Regressa deve ser informado a data do Regresso, ou de retorno para o caso dos membros recebidos,
+Quando o membro Regressa deve ser informado a data do Regresso, ou de retorno para o caso dos membros recebidos, - Done
 
-Depois que termina a Recomendação Deve ser Gerado um documento em pdf Denominado Carta de Recomendação.
+Depois que termina a Recomendação Deve ser Gerado um documento em pdf Denominado Carta de Recomendação. -- TODO
 
-caso a Recomendção expedita regressa, ao informa a data de retorno o sistema deve alterar o estado da recomedação para devolvido, essa regra é valido para as cartas de recomendação.
+caso a Recomendção expedita regressa, ao informa a data de retorno o sistema deve alterar o estado da recomedação para devolvido, essa regra é valido para as cartas de recomendação. - TODO
 
-Se possivel pode monitorar infomando quando tempo falta para as carta activas ficarem desavitvas e tambem podem monitorar quanto tempo quantos dias as cartas estão invalidas.
+Se possivel pode monitorar infomando quando tempo falta para as carta activas ficarem desavitvas e tambem podem monitorar quanto tempo quantos dias as cartas estão invalidas. -- TODO
 
-Quando a carta é gerada deve ser guardado no sistema.
+Quando a carta é gerada deve ser guardado no sistema. -- TODO
 
-Quando uma carta é recebida deve ser anexado ao registo de Recepção do Membro, mantendo assim o documento seguro de possiveis extravios.
+Quando uma carta é recebida deve ser anexado ao registo de Recepção do Membro, mantendo assim o documento seguro de possiveis extravios. -- TODO
 
-As Recomendações devem ser Listadas em duas categorias [Expedidas e Recebidas], e separadas de acordo ao seu estado e num intervalo de data de acordo o utilizador, as datas em causas a principio deve ser a data de entrata para os Expedidos e a data da recomendação para os Expedidos.
+As Recomendações devem ser Listadas em duas categorias [Expedidas e Recebidas], e separadas de acordo ao seu estado e num intervalo de data de acordo o utilizador, as datas em causas a principio deve ser a data de entrata para os Expedidos e a data da recomendação para os Expedidos. -- TODO
 
-O sistema deve Gerar Um documento de Recomendação que será impressa a aasinada e entregue ao membro, e quando o membro regressa pode sim ter a possibilidade de anexar a carta expedida com a assinatura de devilução da igreja visitada.
+O sistema deve Gerar Um documento de Recomendação que será impressa a aasinada e entregue ao membro, e quando o membro regressa pode sim ter a possibilidade de anexar a carta expedida com a assinatura de devilução da igreja visitada. -- TODO
 
 ## Prazo de Execução do Codigo
 
