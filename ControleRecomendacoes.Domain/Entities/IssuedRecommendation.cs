@@ -5,18 +5,14 @@ namespace ControleRecomendacoes.Domain.Entities;
 
 public class IssuedRecommendation : Recommendation
 {
-    public IssuedRecommendation(Member member,
-            string destinyChurch,
-            string destinyLacality) : base(member)
+    public IssuedRecommendation(Member member, Church destiny) : base(member)
     {
-        DestinyChurch = destinyChurch;
-        DestinyLacality = destinyLacality;
+        Destiny = destiny;
         RecommendationGeneratedUrl = null;
 
     }
 
-    public string DestinyChurch { get; private set; }
-    public string DestinyLacality { get; private set; }
+    public Church Destiny { get; private set; }
     public string? RecommendationGeneratedUrl { get; private set; }
     public override DateTime UpdateRecommendationDate()
     {

@@ -8,15 +8,14 @@ namespace ControleRecomandacoes.Test.TestEntity;
 [TestClass]
 public class TestEntity
 {
-    private readonly Member _member = new Member("Raul", "Silva", "9999999999");
-
+    private readonly IssuedRecommendation _expedir = new IssuedRecommendation(new Member("Raul", "Silva", "9999999999"),
+    new Church("monte das Oliveira", "Maianga"));
 
     [TestMethod]
     [TestCategory("domain")]
     public void SolicaitarRecomendacaoValida()
     {
-        var expedir = new IssuedRecommendation(_member, "Morro de Areia", "Maianga");
-        Assert.AreEqual(ERecommendationState.Devolvido, expedir.State);
+        Assert.AreEqual(ERecommendationState.Devolvido, _expedir.State);
     }
 
     [TestMethod]
