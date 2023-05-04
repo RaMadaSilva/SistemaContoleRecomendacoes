@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flunt.Validations;
 
-namespace ControleRecomendacoes.Domain.Entities.ValueObject
+namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Member : ValueObject
     {

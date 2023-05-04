@@ -1,9 +1,9 @@
 
-using ControleRecomendacoes.Domain.Entities;
-using ControleRecomendacoes.Domain.Entities.Enums;
-using ControleRecomendacoes.Domain.Entities.ValueObject;
+using ControleRecommads.Domain.Entities;
+using ControleRecommads.Domain.Entities.Enums;
+using ControleRecommads.Domain.Entities.ValueObject;
 
-namespace ControleRecomandacoes.Test.TestEntity;
+namespace ControleRecommads.Test.TestEntity;
 
 [TestClass]
 public class TestEntity

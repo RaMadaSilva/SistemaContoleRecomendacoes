@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flunt.Notifications;
 
-namespace ControleRecomendacoes.Domain.Entities.ValueObject
+namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public abstract class ValueObject : Notifiable<Notification>
     {

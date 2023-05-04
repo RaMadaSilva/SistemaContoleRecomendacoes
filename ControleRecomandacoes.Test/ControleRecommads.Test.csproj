@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ControleRecomendacoes.Domain\ControleRecomendacoes.Domain.csproj" />
+    <ProjectReference Include="..\ControleRecomendacoes.Domain\ControleRecommads.Domain.csproj" />
   </ItemGroup>
 
 </Project>

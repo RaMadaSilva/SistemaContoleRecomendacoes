@@ -1,4 +1,4 @@
-namespace ControleRecomendacoes.Domain.Entities.Enums;
+namespace ControleRecommads.Domain.Entities.Enums;
 
 public enum ERecommendationState
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Flunt.Notifications;
 
-namespace ControleRecomendacoes.Domain.Entities
+namespace ControleRecommads.Domain.Entities
 {
     public abstract class Entity : Notifiable<Notification>
     {

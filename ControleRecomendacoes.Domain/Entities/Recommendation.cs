@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ControleRecomendacoes.Domain.Entities.Enums;
-using ControleRecomendacoes.Domain.Entities.ValueObject;
+using ControleRecommads.Domain.Entities.Enums;
+using ControleRecommads.Domain.Entities.ValueObject;
 using Flunt.Validations;
 
-namespace ControleRecomendacoes.Domain.Entities;
+namespace ControleRecommads.Domain.Entities;
 
 public abstract class Recommendation : Entity
 {

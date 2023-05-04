@@ -1,7 +1,7 @@
-using ControleRecomendacoes.Domain.Entities.Enums;
-using ControleRecomendacoes.Domain.Entities.ValueObject;
+using ControleRecommads.Domain.Entities.Enums;
+using ControleRecommads.Domain.Entities.ValueObject;
 
-namespace ControleRecomendacoes.Domain.Entities;
+namespace ControleRecommads.Domain.Entities;
 
 public class IssuedRecommendation : Recommendation
 {

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ControleRecomendacoes.Domain.Entities.ValueObject;
+using ControleRecommads.Domain.Entities.ValueObject;
 
-namespace ControleRecomendacoes.Domain.Entities;
+namespace ControleRecommads.Domain.Entities;
 
 public class ReceivedRecommendation : Recommendation
 {

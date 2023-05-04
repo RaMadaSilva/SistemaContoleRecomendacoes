@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ControleRecomendacoes.Domain.Entities.ValueObject
+namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Church : ValueObject
     {
