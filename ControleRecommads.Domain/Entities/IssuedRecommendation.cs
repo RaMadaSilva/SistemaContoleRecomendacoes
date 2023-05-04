@@ -9,7 +9,6 @@ public class IssuedRecommendation : Recommendation
     {
         Destiny = destiny;
         RecommendationGeneratedUrl = null;
-
     }
 
     public Church Destiny { get; private set; }

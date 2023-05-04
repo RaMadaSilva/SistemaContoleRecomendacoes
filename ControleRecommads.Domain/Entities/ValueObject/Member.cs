@@ -14,7 +14,9 @@ namespace ControleRecommads.Domain.Entities.ValueObject
             AddNotifications(new Contract<Recommendation>()
                         .Requires()
                         .IsNotNull(firstName, "O nome é obrigatorio")
+                        .IsMinValue(3, firstName, "O Nome deve possuir no minio 3 letras")
                         .IsNotNull(lastName, "O Sobre Nome é Obrigatorio")
+                        .IsMinValue(3, lastName, "O Sobre Nome deve possuir no minio 3 letras")
                         .IsNotNull(telefoneNumber, "O Numero do Telefone é Obrigatio"));
 
             FirstName = firstName;
