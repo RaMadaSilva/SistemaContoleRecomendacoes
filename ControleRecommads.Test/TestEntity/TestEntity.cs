@@ -1,18 +1,22 @@
 
 
 
+using ControleRecommads.Domain.Entities;
+using ControleRecommads.Domain.Entities.Enums;
+using ControleRecommads.Domain.Entities.ValueObject;
+
 namespace ControleRecommads.Test.TestEntity;
 
 [TestClass]
 public class TestEntity
 {
-
-
+    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Raul", "Silva", "999999"),
+                        new Church("Monte das Oliveita", "Maianga"));
     [TestMethod]
     [TestCategory("domain")]
     public void SolicaitarRecomendacaoValida()
     {
-        Assert.Fail(); 
+        Assert.AreEqual(ERecommendationState.valido, _issued.State);
     }
 
     [TestMethod]
