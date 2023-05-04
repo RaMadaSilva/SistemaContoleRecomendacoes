@@ -1,13 +1,22 @@
+
+using ControleRecomendacoes.Domain.Entities;
+using ControleRecomendacoes.Domain.Entities.Enums;
+using ControleRecomendacoes.Domain.Entities.ValueObject;
+
 namespace ControleRecomandacoes.Test.TestEntity;
 
 [TestClass]
 public class TestEntity
 {
+    private readonly Member _member = new Member("Raul", "Silva", "9999999999");
+
+
     [TestMethod]
     [TestCategory("domain")]
     public void SolicaitarRecomendacaoValida()
     {
-        Assert.Fail();
+        var expedir = new IssuedRecommendation(_member, "Morro de Areia", "Maianga");
+        Assert.AreEqual(ERecommendationState.Devolvido, expedir.State);
     }
 
     [TestMethod]

@@ -2,26 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ControleRecomendacoes.Domain.Entities.ValueObject;
 
 namespace ControleRecomendacoes.Domain.Entities;
 
 public class ReceivedRecommendation : Recommendation
 {
     private readonly DateTime _recomandationDate;
-    public ReceivedRecommendation(string firstName,
-                string lastName,
-                string telefoneNumber,
+    public ReceivedRecommendation(Member member,
                 DateTime recommendationDate,
                 string originChurche,
                 string localChurcheOrigin,
-                string actualResidence)
-                : base(firstName, lastName, telefoneNumber)
+                string actualResidence) : base(member)
     {
         OriginChurche = originChurche;
         LocalChurcheOrigin = localChurcheOrigin;
         ActualResidence = actualResidence;
         AttachmentRecommendationUrl = null;
         _recomandationDate = recommendationDate;
+
     }
 
     public string OriginChurche { get; private set; }

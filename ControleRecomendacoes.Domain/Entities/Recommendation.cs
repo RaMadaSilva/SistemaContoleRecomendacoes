@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ControleRecomendacoes.Domain.Entities.Enums;
+using ControleRecomendacoes.Domain.Entities.ValueObject;
 using Flunt.Validations;
 
 namespace ControleRecomendacoes.Domain.Entities;
 
 public abstract class Recommendation : Entity
 {
-    protected Recommendation(string firstName, string lastName, string telefoneNumber)
+    protected Recommendation(Member member)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        TelefoneNumber = telefoneNumber;
-
+        Member = member;
         State = ERecommendationState.valido;
         EntryDate = DateTime.Now;
         RecommendationDate = UpdateRecommendationDate();
@@ -24,15 +22,11 @@ public abstract class Recommendation : Entity
         AddNotifications(new Contract<Recommendation>()
                         .Requires()
                         .IsGreaterThan(RecommendationDate, EntryDate, "A Data da recomendação não deve ser posterior a data actual")
-                        .IsGreaterOrEqualsThan(EntryDate, ValidateDate, "A data de validade está invalida")
-                        .IsNotNull(FirstName, "O nome é obrigatorio")
-                        .IsNotNull(LastName, "O Sobre Nome é Obrigatorio")
-                        .IsNotNull(TelefoneNumber, "O Numero do Telefone é Obrigatio"));
+                        .IsGreaterOrEqualsThan(EntryDate, ValidateDate, "A data de validade está invalida"));
+        Member.AddNotifications(Notifications);
     }
 
-    public string FirstName { get; private set; }
-    public string LastName { get; private set; }
-    public string TelefoneNumber { get; private set; }
+    public Member Member { get; private set; }
     public ERecommendationState State { get; private set; }
     public DateTime EntryDate { get; private set; }
     public DateTime RecommendationDate { get; private set; }
