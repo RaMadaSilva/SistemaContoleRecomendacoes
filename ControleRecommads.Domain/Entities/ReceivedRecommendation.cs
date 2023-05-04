@@ -9,12 +9,9 @@ namespace ControleRecommads.Domain.Entities;
 public class ReceivedRecommendation : Recommendation
 {
     private readonly DateTime _recomandationDate;
-    public ReceivedRecommendation(Member member,
-                DateTime recommendationDate, Church origin,
-                string actualResidence) : base(member)
+    public ReceivedRecommendation(Member member, DateTime recommendationDate, Church origin) : base(member)
     {
         Origin = origin;
-        ActualResidence = actualResidence;
         AttachmentRecommendationUrl = null;
         _recomandationDate = recommendationDate;
 

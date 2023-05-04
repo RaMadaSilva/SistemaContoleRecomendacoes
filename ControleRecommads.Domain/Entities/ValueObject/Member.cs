@@ -9,7 +9,7 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Member : ValueObject
     {
-        public Member(string firstName, string lastName, string telefoneNumber)
+        public Member(string firstName, string lastName, string telefoneNumber, string residence = null)
         {
             AddNotifications(new Contract<Recommendation>()
                         .Requires()
@@ -22,11 +22,12 @@ namespace ControleRecommads.Domain.Entities.ValueObject
             FirstName = firstName;
             LastName = lastName;
             TelefoneNumber = telefoneNumber;
-
+            Residence = residence;
         }
 
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string TelefoneNumber { get; private set; }
+        public string? Residence { get; private set; }
     }
 }
