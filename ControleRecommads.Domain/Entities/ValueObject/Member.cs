@@ -9,7 +9,7 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Member : ValueObject
     {
-        public Member(string firstName, string lastName, string telefoneNumber, string residence = null)
+        public Member(string firstName, string lastName, string telefoneNumber, string? residence = null)
         {
             AddNotifications(new Contract<Recommendation>()
                         .Requires()

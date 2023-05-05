@@ -18,7 +18,6 @@ public class ReceivedRecommendation : Recommendation
     }
 
     public Church Origin { get; private set; }
-    public string ActualResidence { get; private set; }
     public string? AttachmentRecommendationUrl { get; private set; }
 
     public override DateTime UpdateRecommendationDate()

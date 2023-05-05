@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ControleRecomandacoes.Test/bin/Debug/net7.0/ControleRecomandacoes.Test.dll",
+            "program": "${workspaceFolder}/ControleRecommads.Test/bin/Debug/net7.0/ControleRecommads.Test.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/ControleRecomandacoes.Test",
+            "cwd": "${workspaceFolder}/ControleRecommads.Test",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

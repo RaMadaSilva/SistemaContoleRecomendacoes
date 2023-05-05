@@ -1,7 +1,4 @@
-
-
-
-using System.Runtime.Serialization;
+using System.Runtime;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
@@ -11,22 +8,24 @@ namespace ControleRecommads.Test.TestEntity;
 [TestClass]
 public class TestEntity
 {
-    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Raul", "Silva", "999999"),
-                        new Church("Monte das Oliveita", "Maianga"));
-    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member("Paulo",
-        "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
-        new DateTime(2023, 04, 01), new Church("Monte das Gazelas", "Huambo"));
+    private readonly IssuedRecommendation _issued = new(new Member("Raul", "Silva", "999999"),
+                new Church("Monte das Oliveita", "Maianga"));
+    private readonly ReceivedRecommendation _receivedValid = new(new Member("Paulo", "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
+            new DateTime(2023, 04, 01),
+            new Church("Monte das Gazelas", "Huambo"));
 
     private readonly ReceivedRecommendation _receivedRecommendation = new ReceivedRecommendation(new Member("Mauro",
         "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
-        new DateTime(2022, 04, 01), new Church("Monte das Gazelas", "Huambo"));
+        new DateTime(2022, 04, 01),
+        new Church("Monte das Gazelas", "Huambo"));
 
+    public IssuedRecommendation Issued => _issued;
 
     [TestMethod]
     [TestCategory("domain")]
     public void SolicaitarRecomendacaoValida()
     {
-        Assert.AreEqual(ERecommendationState.valido, _issued.State);
+        Assert.AreEqual(ERecommendationState.valido, Issued.State);
     }
 
     [TestMethod]
@@ -47,7 +46,8 @@ public class TestEntity
     [TestCategory("domain")]
     public void DevolverUmaRecomendandacaoRecebida()
     {
-        Assert.Fail();
+        _receivedValid.UpdateStateDevolvido(DateTime.Now);
+        Assert.AreEqual(ERecommendationState.Devolvido, _receivedValid.State);
     }
 
     [TestMethod]

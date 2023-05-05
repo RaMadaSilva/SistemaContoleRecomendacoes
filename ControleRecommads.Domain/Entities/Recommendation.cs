@@ -35,14 +35,15 @@ public abstract class Recommendation : Entity
 
     public abstract DateTime UpdateRecommendationDate();
 
-    public void GetDevolutionDate(DateTime date)
+    // public void GetDevolutionDate(DateTime date)
+    // {
+    //     DevolutionDate = date;
+    // }
+
+    public void UpdateStateDevolvido(DateTime date)
     {
         DevolutionDate = date;
-    }
-
-    public void UpdateStateDevolvido()
-    {
-        if (DevolutionDate != null)
+        if (IsValid)
             State = ERecommendationState.Devolvido;
     }
     public void UpdateStateInvalido()
