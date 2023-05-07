@@ -8,6 +8,7 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Church : ValueObject
     {
+
         public Church(string name, string localization)
         {
             AddNotifications(new Contract<Church>()

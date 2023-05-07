@@ -8,14 +8,13 @@ public class IssuedRecommendation : Recommendation
     public IssuedRecommendation(Member member, Church destiny) : base(member)
     {
         Destiny = destiny;
+        IssuedDate = DateTime.Now;
         RecommendationGeneratedUrl = null;
+        SetValidateDate(IssuedDate.AddDays(180));
     }
 
     public Church Destiny { get; private set; }
+    public DateTime IssuedDate { get; private set; }
     public string? RecommendationGeneratedUrl { get; private set; }
-    public override DateTime UpdateRecommendationDate()
-    {
-        return DateTime.Now;
-    }
 
 }

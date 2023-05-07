@@ -8,9 +8,9 @@ namespace ControleRecommads.Test.TestEntity;
 [TestClass]
 public class TestEntity
 {
-    private readonly IssuedRecommendation _issued = new(new Member("Raul", "Silva", "999999"),
+    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Rafael", "Silva", "999999"),
                 new Church("Monte das Oliveita", "Maianga"));
-    private readonly ReceivedRecommendation _receivedValid = new(new Member("Paulo", "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
+    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member("Paulo", "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
             new DateTime(2023, 04, 01),
             new Church("Monte das Gazelas", "Huambo"));
 
@@ -19,13 +19,11 @@ public class TestEntity
         new DateTime(2022, 04, 01),
         new Church("Monte das Gazelas", "Huambo"));
 
-    public IssuedRecommendation Issued => _issued;
-
     [TestMethod]
     [TestCategory("domain")]
     public void SolicaitarRecomendacaoValida()
     {
-        Assert.AreEqual(ERecommendationState.valido, Issued.State);
+        Assert.AreEqual(ERecommendationState.valido, _issued.State);
     }
 
     [TestMethod]
