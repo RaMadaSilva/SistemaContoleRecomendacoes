@@ -11,7 +11,7 @@ namespace ControleRecommads.Domain.Entities.ValueObject
     {
         public Member(string firstName, string lastName, string telefoneNumber, string? residence = null)
         {
-            AddNotifications(new Contract<Recommendation>()
+            AddNotifications(new Contract<Member>()
                         .Requires()
                         .IsNotNull(firstName, "O nome é obrigatorio")
                         .IsNotMinValue(3, firstName, "O Nome deve possuir no minimo 3 letras")

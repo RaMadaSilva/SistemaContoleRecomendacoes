@@ -10,35 +10,39 @@ namespace ControleRecommads.Domain.Entities;
 
 public abstract class Recommendation : Entity
 {
-    protected Recommendation(Member member)
+    protected Recommendation(Member member, DateTime recommendationDate)
     {
         Member = member;
         if (member.IsValid)
             State = ERecommendationState.valido;
         EntryDate = DateTime.Now;
+        RecommendationDate = recommendationDate;
+        ValidateDate = recommendationDate.AddDays(180);
         DevolutionDate = null;
 
+
         AddNotifications(new Contract<Recommendation>()
-                        .Requires()
-                        .IsGreaterOrEqualsThan(ValidateDate, EntryDate, "A data de validade está invalida"));
+        .Requires()
+        .IsGreaterThan(ValidateDate, EntryDate, "Data Invalida!"));
+
         Member.AddNotifications(Notifications);
     }
 
     public Member Member { get; private set; }
     public ERecommendationState State { get; private set; }
     public DateTime EntryDate { get; private set; }
+    public DateTime RecommendationDate { get; private set; }
     public DateTime ValidateDate { get; private set; }
     public DateTime? DevolutionDate { get; private set; }
 
-    public void SetValidateDate(DateTime date)
-    {
-        ValidateDate = date;
-    }
     public void UpdateStateDevolvido(DateTime date)
     {
-        DevolutionDate = date;
-        if (IsValid)
+        if (date > RecommendationDate)
+        {
+            DevolutionDate = date;
             State = ERecommendationState.Devolvido;
+        }
+
     }
     public void UpdateStateInvalido()
     {

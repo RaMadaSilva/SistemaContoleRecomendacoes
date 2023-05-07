@@ -68,4 +68,11 @@ public class TestEntity
     {
         Assert.Fail();
     }
+    [TestMethod]
+    [TestCategory("domain")]
+    public void DadaUmaCartaDeRecomendacaoSolicitadaDevolverComDataInferiorADataDaRecomendacao()
+    {
+        Assert.Fail();
+    }
+
 }
