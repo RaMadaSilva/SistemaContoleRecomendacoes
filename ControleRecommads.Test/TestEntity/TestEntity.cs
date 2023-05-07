@@ -52,27 +52,31 @@ public class TestEntity
     [TestCategory("domain")]
     public void DevolverUmaRecomendandacaoExpedida()
     {
-        Assert.Fail();
+        _issued.UpdateStateDevolvido(new DateTime(2023, 12, 15));
+        Assert.AreEqual(ERecommendationState.Devolvido, _issued.State);
     }
 
     [TestMethod]
     [TestCategory("domain")]
     public void DadaUmaCartaDeRecomendacaoValidaAlterarEstadoParaDevolvido()
     {
-        Assert.Fail();
+        _receivedRecommendation.UpdateStateDevolvido(DateTime.Now);
+        Assert.AreEqual(ERecommendationState.Devolvido, _receivedRecommendation.State);
     }
 
     [TestMethod]
     [TestCategory("domain")]
     public void DadaUmaCartaDeRecomendacaoValidaAlterarEstadoParaInvalido()
     {
-        Assert.Fail();
+        _receivedRecommendation.UpdateStateInvalido();
+        Assert.AreEqual(ERecommendationState.Invalido, _receivedRecommendation.State);
     }
     [TestMethod]
     [TestCategory("domain")]
     public void DadaUmaCartaDeRecomendacaoSolicitadaDevolverComDataInferiorADataDaRecomendacao()
     {
-        Assert.Fail();
+        _receivedValid.UpdateStateDevolvido(new DateTime(2023, 03, 01));
+        Assert.AreNotEqual(ERecommendationState.Devolvido, _receivedValid.State);
     }
 
 }

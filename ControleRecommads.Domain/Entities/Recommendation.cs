@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
 using Flunt.Validations;
@@ -37,7 +33,7 @@ public abstract class Recommendation : Entity
 
     public void UpdateStateDevolvido(DateTime date)
     {
-        if (date > RecommendationDate)
+        if (date >= RecommendationDate)
         {
             DevolutionDate = date;
             State = ERecommendationState.Devolvido;
@@ -46,7 +42,8 @@ public abstract class Recommendation : Entity
     }
     public void UpdateStateInvalido()
     {
-        if (ValidateDate >= DateTime.Now)
+        var days = ValidateDate.Subtract(DateTime.Now).TotalDays;
+        if (days <= 0)
             State = ERecommendationState.Invalido;
     }
 
