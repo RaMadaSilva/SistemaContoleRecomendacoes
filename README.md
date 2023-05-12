@@ -22,11 +22,11 @@ A Data de Validade da carta de recomendação Expedida deve ser calculado no sis
 
 Ao Registar uma carta o sistema deve verificar se a data actual é superio a data de validade da Carta, caso seja superior não deve ser possivel Registar a recepção, e quando a data de validade é superior a data actual o sistema deve tambem mudar o estado da Carta de Recomendação recebido. - DONE
 
-Quando o membro Regressa deve ser informado a data do Regresso, ou de retorno para o caso dos membros recebidos, - Done
+Quando o membro Regressa deve ser informado a data do Regresso, ou de retorno para o caso dos membros recebidos, - DONE
 
 Depois que termina a Recomendação Deve ser Gerado um documento em pdf Denominado Carta de Recomendação. -- TODO
 
-caso a Recomendção expedita regressa, ao informa a data de retorno o sistema deve alterar o estado da recomedação para devolvido, essa regra é valido para as cartas de recomendação. - TODO
+caso a Recomendção expedita regressa, ao informa a data de retorno o sistema deve alterar o estado da recomedação para devolvido, essa regra é valido para as cartas de recomendação. - DONE
 
 Se possivel pode monitorar infomando quando tempo falta para as carta activas ficarem desavitvas e tambem podem monitorar quanto tempo quantos dias as cartas estão invalidas. -- TODO
 

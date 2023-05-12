@@ -16,7 +16,6 @@ public abstract class Recommendation : Entity
         ValidateDate = recommendationDate.AddDays(180);
         DevolutionDate = null;
 
-
         AddNotifications(new Contract<Recommendation>()
         .Requires()
         .IsGreaterThan(ValidateDate, EntryDate, "Data Invalida!"));
@@ -46,5 +45,4 @@ public abstract class Recommendation : Entity
         if (days <= 0)
             State = ERecommendationState.Invalido;
     }
-
 }
