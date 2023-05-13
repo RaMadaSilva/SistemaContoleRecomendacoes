@@ -8,14 +8,14 @@ namespace ControleRecommads.Test.TestEntity;
 [TestClass]
 public class TestEntity
 {
-    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Rafael", "Silva", "999999"),
+    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Rafael", "Silva", 999999),
                 new Church("Monte das Oliveita", "Maianga"));
-    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member("Paulo", "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
+    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member("Paulo", "Magalhaes", 888888888, "Em frente a Fabrica da mabor"),
             new DateTime(2023, 04, 01),
             new Church("Monte das Gazelas", "Huambo"));
 
     private readonly ReceivedRecommendation _receivedRecommendation = new ReceivedRecommendation(new Member("Mauro",
-        "Magalhaes", "888888888", "Em frente a Fabrica da mabor"),
+        "Magalhaes", 888888888, "Em frente a Fabrica da mabor"),
         new DateTime(2022, 04, 01),
         new Church("Monte das Gazelas", "Huambo"));
 

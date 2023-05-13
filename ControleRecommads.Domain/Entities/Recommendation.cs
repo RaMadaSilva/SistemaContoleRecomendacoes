@@ -39,10 +39,13 @@ public abstract class Recommendation : Entity
         }
 
     }
+
+    public double CountDaysMiss()
+        => ValidateDate.Subtract(DateTime.Now).TotalDays;
+
     public void UpdateStateInvalido()
     {
-        var days = ValidateDate.Subtract(DateTime.Now).TotalDays;
-        if (days <= 0)
+        if (CountDaysMiss() <= 0)
             State = ERecommendationState.Invalido;
     }
 }

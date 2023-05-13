@@ -25,8 +25,5 @@ namespace ControleRecommads.Domain.Commands
         public DateTime DataReceive { get; set; }
         public string NameChurch { get; set; }
         public string Localization { get; set; }
-
-
-
     }
 }
