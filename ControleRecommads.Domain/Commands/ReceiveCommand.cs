@@ -9,7 +9,8 @@ namespace ControleRecommads.Domain.Commands
                 uint phoneNumber,
                 DateTime dataReceive,
                 string nameChurch,
-                string localization)
+                string localization,
+                string currentAdress)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -17,6 +18,7 @@ namespace ControleRecommads.Domain.Commands
             DataReceive = dataReceive;
             NameChurch = nameChurch;
             Localization = localization;
+            CurrentAdress = currentAdress;
         }
 
         public string FirstName { get; set; }
@@ -25,5 +27,8 @@ namespace ControleRecommads.Domain.Commands
         public DateTime DataReceive { get; set; }
         public string NameChurch { get; set; }
         public string Localization { get; set; }
+
+        public string CurrentAdress { get; set; }
+
     }
 }

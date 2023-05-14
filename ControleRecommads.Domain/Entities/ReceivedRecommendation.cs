@@ -13,6 +13,8 @@ public class ReceivedRecommendation : Recommendation
     {
         Origin = origin;
         AttachmentRecommendationUrl = null;
+
+        origin.AddNotifications(Notifications);
     }
 
     public Church Origin { get; private set; }
