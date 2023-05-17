@@ -26,7 +26,7 @@ namespace ControleRecommads.Domain.Handler
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
 
-            var recommendation = _repostory.GetReceivedRecommendation(member, church);
+            var recommendation = _repostory.GetRecommendation(member, church);
 
             if (recommendation != null)
                 return new CommandResult(false, "Este Membro já tem uma recomandação valida", recommendation);

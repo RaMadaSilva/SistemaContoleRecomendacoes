@@ -8,8 +8,8 @@ namespace ControleRecommads.Domain.Repositories
     {
         IList<T> GetAllReceivedRecommendation();
         IList<T> GetAllReceivedRecommendationWithState(ERecommendationState state);
-        T GetReceivedRecommendation(Guid id);
-        T GetReceivedRecommendation(Member member, Church church);
+        T GetRecommendation(Guid id);
+        T GetRecommendation(Member member, Church church);
         void Save(T recommendation);
     }
 }
