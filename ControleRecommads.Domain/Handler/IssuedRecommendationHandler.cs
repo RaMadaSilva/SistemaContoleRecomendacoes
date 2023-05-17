@@ -19,6 +19,14 @@ namespace ControleRecommads.Domain.Handler
         public ICommandResult Handler(IssueCommand command)
         {
             throw new NotImplementedException();
+
+            //1# verificar se o membro tem uma carta de recomendação solicitada valida
+
+            //2# Criar uma solicitação da carta de recomendação  solicitada
+
+            //3# Salvar a Carta de recomendação solicitada
+
+            //4# Retornar a carta solicitada
         }
     }
 }
