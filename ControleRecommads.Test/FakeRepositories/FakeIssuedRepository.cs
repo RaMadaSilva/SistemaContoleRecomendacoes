@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
@@ -11,29 +8,31 @@ namespace ControleRecommads.Test.FakeRepositories
 {
     public class FakeIssuedRepository : IRecommendationRepository<IssuedRecommendation>
     {
+        List<IssuedRecommendation> issuedRecommendations = new List<IssuedRecommendation>(){
+            new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
+            new IssuedRecommendation(new("Joana", "Jandira", 9999999), new("Morro dos Veados", "Benfica")),
+            new IssuedRecommendation(new("Antonio", "Pedro", 9999999), new("bereia ", "Maianga")),
+            new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
+        };
+
         public IList<IssuedRecommendation> GetAllReceivedRecommendation()
-        {
-            throw new NotImplementedException();
-        }
+            => issuedRecommendations;
 
         public IList<IssuedRecommendation> GetAllReceivedRecommendationWithState(ERecommendationState state)
-        {
-            throw new NotImplementedException();
-        }
+            => issuedRecommendations.Where(x => x.State == state).ToList();
 
         public IssuedRecommendation GetRecommendation(Guid id)
         {
-            throw new NotImplementedException();
+            var reuslt = issuedRecommendations.Where(x => x.Id == id).FirstOrDefault();
+            return reuslt;
         }
 
         public IssuedRecommendation GetRecommendation(Member member, Church church)
         {
-            throw new NotImplementedException();
+            issuedRecommendations.Any(x => x.Member == member);
         }
 
         public void Save(IssuedRecommendation recommendation)
-        {
-            throw new NotImplementedException();
-        }
+            => issuedRecommendations.Add(recommendation);
     }
 }
