@@ -10,9 +10,9 @@ namespace ControleRecommads.Test.FakeRepositories
     {
         List<IssuedRecommendation> issuedRecommendations = new List<IssuedRecommendation>(){
             new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
-            new IssuedRecommendation(new("Joana", "Jandira", 9999999), new("Morro dos Veados", "Benfica")),
-            new IssuedRecommendation(new("Antonio", "Pedro", 9999999), new("bereia ", "Maianga")),
-            new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
+            new IssuedRecommendation(new("Joana", "Jandira", 888888), new("Morro dos Veados", "Benfica")),
+            new IssuedRecommendation(new("Antonio", "Pedro", 7777777), new("bereia ", "Maianga")),
+            new IssuedRecommendation(new("Raul", "Mateia", 6666666), new("Monte das Oliveira", "Maianga")),
         };
 
         public IList<IssuedRecommendation> GetAllReceivedRecommendation()
@@ -29,9 +29,15 @@ namespace ControleRecommads.Test.FakeRepositories
 
         public IssuedRecommendation GetRecommendationValid(Member member)
         {
-            var recommendationsValids = issuedRecommendations.Where(x => x.State == ERecommendationState.valido).ToList();
+            var recommendationValid = issuedRecommendations
+                                        .Where(x => x.State == ERecommendationState.valido)
+                                        .ToList()
+                                        .Find(x => x.Member == member);
 
-            return recommendationsValids.Find(x => x.Member == member);
+
+            if (recommendationValid == null)
+                return null;
+            return recommendationValid;
         }
 
         public void Save(IssuedRecommendation recommendation)
