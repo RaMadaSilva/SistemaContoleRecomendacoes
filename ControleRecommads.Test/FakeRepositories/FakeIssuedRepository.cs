@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
@@ -34,10 +33,9 @@ namespace ControleRecommads.Test.FakeRepositories
                                         .ToList()
                                         .Find(x => x.Member == member);
 
-
-            if (recommendationValid == null)
-                return null;
-            return recommendationValid;
+            if (recommendationValid != null)
+                return recommendationValid;
+            return null;
         }
 
         public void Save(IssuedRecommendation recommendation)
