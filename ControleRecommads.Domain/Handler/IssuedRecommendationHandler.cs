@@ -27,7 +27,7 @@ namespace ControleRecommads.Domain.Handler
 
 
             //1# verificar se o membro tem uma carta de recomendação solicitada valida
-            var recommendation = _issuedRepo.GetRecommendation(member, church);
+            var recommendation = _issuedRepo.GetRecommendationValid(member);
             if (recommendation != null)
                 return new CommandResult(false, "O referido membro ainda tem uma carta de recomendação valida", recommendation);
 

@@ -27,9 +27,11 @@ namespace ControleRecommads.Test.FakeRepositories
             return reuslt;
         }
 
-        public IssuedRecommendation GetRecommendation(Member member, Church church)
+        public IssuedRecommendation GetRecommendationValid(Member member)
         {
-            issuedRecommendations.Any(x => x.Member == member);
+            var recommendationsValids = issuedRecommendations.Where(x => x.State == ERecommendationState.valido).ToList();
+
+            return recommendationsValids.Find(x => x.Member == member);
         }
 
         public void Save(IssuedRecommendation recommendation)

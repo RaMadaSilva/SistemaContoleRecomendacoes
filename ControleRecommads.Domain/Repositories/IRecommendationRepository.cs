@@ -9,7 +9,7 @@ namespace ControleRecommads.Domain.Repositories
         IList<T> GetAllReceivedRecommendation();
         IList<T> GetAllReceivedRecommendationWithState(ERecommendationState state);
         T GetRecommendation(Guid id);
-        T GetRecommendation(Member member, Church church);
+        T GetRecommendationValid(Member member);
         void Save(T recommendation);
     }
 }
