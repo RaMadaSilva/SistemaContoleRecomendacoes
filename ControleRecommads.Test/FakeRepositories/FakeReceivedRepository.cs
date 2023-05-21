@@ -7,7 +7,7 @@ namespace ControleRecommads.Test.FakeRepositories
 {
     public class FakeReceivedRepository : IRecommendationRepository<ReceivedRecommendation>
     {
-        List<ReceivedRecommendation> receivedRecommendations = new()
+        private List<ReceivedRecommendation> receivedRecommendations = new()
         {
             new ReceivedRecommendation(new("Nelma",  "Kiffen", 111111111, "Maianga"), new DateTime(2023, 05, 19), new("Maianga", "Maianga")),
             new ReceivedRecommendation(new("Walter",  "Msamo", 222222222, "Maculusso"), new DateTime(2022, 05, 19), new("Central", "Maculusso")),
