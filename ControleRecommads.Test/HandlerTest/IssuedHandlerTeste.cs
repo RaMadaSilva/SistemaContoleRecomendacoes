@@ -43,5 +43,18 @@ namespace ControleRecommads.Test.HandlerTest
             Assert.Fail();
         }
 
+        [TestMethod]
+        [TestCategory("Handler")]
+        public void Dado_Uma_Recomendacao_Solicitada_Nao_Valida_Actualizar_Estado_Para_Devolvido()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        [TestCategory("Handler")]
+        public void Dado_Uma_Recomendacao_Solicitada_Valida_Actualizar_Estado_Para_Devolvido()
+        {
+            Assert.Fail();
+        }
     }
 }
