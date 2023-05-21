@@ -11,5 +11,6 @@ namespace ControleRecommads.Domain.Repositories
         T GetRecommendation(Guid id);
         T GetRecommendationValid(Member member);
         void Save(T recommendation);
+        void UpdateRecommendation(T recommendation);
     }
 }

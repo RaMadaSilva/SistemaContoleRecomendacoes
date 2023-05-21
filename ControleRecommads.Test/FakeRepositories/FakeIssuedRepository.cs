@@ -40,5 +40,10 @@ namespace ControleRecommads.Test.FakeRepositories
 
         public void Save(IssuedRecommendation recommendation)
             => issuedRecommendations.Add(recommendation);
+
+        public void UpdateRecommendation(IssuedRecommendation recommendation)
+        {
+            //TODO
+        }
     }
 }
