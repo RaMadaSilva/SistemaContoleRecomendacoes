@@ -43,7 +43,13 @@ namespace ControleRecommads.Test.FakeRepositories
 
         public void UpdateRecommendation(IssuedRecommendation recommendation)
         {
-            //TODO
+            var received = issuedRecommendations.Where(x => x.Member == recommendation.Member).FirstOrDefault();
+
+            if (received != null && received.State == ERecommendationState.valido)
+            {
+                issuedRecommendations.Remove(received);
+                issuedRecommendations.Add(recommendation);
+            }
         }
     }
 }
