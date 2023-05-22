@@ -29,5 +29,22 @@ namespace ControleRecommads.Domain.Entities.ValueObject
         public string LastName { get; private set; }
         public uint TelefoneNumber { get; private set; }
         public string? Residence { get; private set; }
+
+        public override bool Equals(Object? obj)
+        {
+            var isIqual = false;
+
+            if (obj is Member)
+            {
+                isIqual = Equals((Member)obj);
+            }
+
+            return isIqual;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(FirstName, LastName);
+        }
     }
 }
