@@ -13,8 +13,8 @@ namespace ControleRecommads.Domain.Entities.ValueObject
         {
             AddNotifications(new Contract<Church>()
                     .Requires()
-                    .IsMinValue(3, name, "O valor minino de letras deve ser 3")
-                    .IsMinValue(3, localization, "O valor minimo de letras deve ser 3"));
+                    .IsNotMinValue(3, name, "O valor minino de letras deve ser 3")
+                    .IsNotMinValue(3, localization, "O valor minimo de letras deve ser 3"));
 
             Name = name;
             Localization = localization;

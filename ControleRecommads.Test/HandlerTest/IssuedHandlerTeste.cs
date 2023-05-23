@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using ControleRecommads.Domain.Commands;
+using ControleRecommads.Domain.Handler;
+using ControleRecommads.Test.FakeRepositories;
 
 namespace ControleRecommads.Test.HandlerTest
 {
@@ -13,7 +15,12 @@ namespace ControleRecommads.Test.HandlerTest
         [TestCategory("Handler")]
         public void Dado_Comando_Valido_Solicitar_Uma_Carta()
         {
-            Assert.Fail();
+            var comand = new IssueCommand("Raul", "Silva", 99999, "Mabor", "Cazenga");
+            var fake = new FakeIssuedRepository();
+            var handler = new IssuedRecommendationHandler(fake);
+            var result = handler.Handler(comand);
+
+            Assert.IsInstanceOfType(result, typeof(CommandResult));
         }
 
         [TestMethod]
