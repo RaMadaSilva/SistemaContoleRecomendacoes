@@ -31,7 +31,7 @@ namespace ControleRecommads.Test.FakeRepositories
             var recommendationValid = issuedRecommendations
                                         .Where(x => x.State == ERecommendationState.valido)
                                         .ToList()
-                                        .Find(x => x.Member == member);
+                                        .Find(x => x.Member.Equals(member));
 
             if (recommendationValid != null)
                 return recommendationValid;
