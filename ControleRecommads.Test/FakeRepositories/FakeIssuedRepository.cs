@@ -29,11 +29,10 @@ namespace ControleRecommads.Test.FakeRepositories
         public IssuedRecommendation GetRecommendationValid(Member member)
         {
 
-            var recommendationsValid = issuedRecommendations
+            var recommendationValid = issuedRecommendations
                                         .Where(x => x.State == ERecommendationState.valido)
-                                        .ToList();
-
-            var recommendationValid = recommendationsValid.Find(x => x.Member.Equals(member));
+                                        .ToList()
+                                        .Find(x => x.Member.Equals(member));
 
             if (recommendationValid != null)
                 return recommendationValid;

@@ -9,16 +9,17 @@ namespace ControleRecommads.Test.HandlerTest
     [TestClass]
     public class IssuedHandlerTeste
     {
-        private readonly IssueCommand _comand = new IssueCommand("Raul", "Silva", 99999, "Mabor", "Cazenga");
+        private readonly IssueCommand _comand = new IssueCommand("Raul", "Mateia", 9999999, "Mabor", "Cazenga");
+        private readonly IssueCommand _ComandNew = new IssueCommand("Maria", "Manuela", 9999999, "Zango", "Viana");
         private readonly IssuedRecommendationHandler _handler = new IssuedRecommendationHandler(new FakeIssuedRepository());
         private readonly FakeIssuedRepository _fake = new FakeIssuedRepository();
+        private readonly Member _member = new("Raul", "Mateia", 9999999);
 
         [TestMethod]
         [TestCategory("Handler")]
         public void Dado_Comando_Valido_Solicitar_Uma_Carta()
         {
-
-            CommandResult result = (CommandResult)_handler.Handler(_comand);
+            CommandResult result = (CommandResult)_handler.Handler(_ComandNew);
             Assert.AreEqual(true, result.Sucesses);
         }
 
@@ -26,8 +27,8 @@ namespace ControleRecommads.Test.HandlerTest
         [TestCategory("Handler")]
         public void Dado_Um_Repositorio_Vericar_Se_Existe_Carta_Valida()
         {
-            var member = new Member("Raul", "Mateia", 9999999);
-            var exist = _fake.GetRecommendationValid(member);
+
+            var exist = _fake.GetRecommendationValid(_member);
             Assert.IsInstanceOfType(exist, typeof(IssuedRecommendation));
         }
 
@@ -35,7 +36,8 @@ namespace ControleRecommads.Test.HandlerTest
         [TestCategory("Handler")]
         public void Dada_Uma_Carta_Valida_Solicitar_Outra_Carta()
         {
-            Assert.Fail();
+            var result = (CommandResult)_handler.Handler(_comand);
+            Assert.IsFalse(result.Sucesses);
         }
 
         [TestMethod]
