@@ -28,10 +28,22 @@ namespace ControleRecommads.Test.FakeRepositories
 
         public IssuedRecommendation GetRecommendationValid(Member member)
         {
-            var recommendationValid = issuedRecommendations
+
+            var recommendationsValid = issuedRecommendations
                                         .Where(x => x.State == ERecommendationState.valido)
-                                        .ToList()
-                                        .Find(x => x.Member == member);
+                                        .ToList();
+            IssuedRecommendation memberRecommendation = null;
+
+            foreach (var item in recommendationsValid)
+            {
+                if (item.Member == member)
+                {
+                    memberRecommendation = item;
+                    break;
+                }
+                memberRecommendation = null;
+            }
+            var recommendationValid = recommendationsValid.Find(x => x.Member == member);
 
             if (recommendationValid != null)
                 return recommendationValid;

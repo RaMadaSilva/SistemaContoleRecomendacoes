@@ -32,14 +32,12 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 
         public override bool Equals(Object? obj)
         {
-            var isIqual = false;
 
-            if (obj is Member)
-            {
-                isIqual = Equals((Member)obj);
-            }
-
-            return isIqual;
+            return obj is Member member &&
+                FirstName == member.FirstName &&
+                LastName == member.LastName &&
+                TelefoneNumber == member.TelefoneNumber &&
+                Residence == member.Residence;
         }
 
         public override int GetHashCode()

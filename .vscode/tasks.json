@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ControleRecomandacoes.Test/ControleRecomandacoes.Test.csproj",
+                "${workspaceFolder}/ControleRecommads.Test/ControleRecommads.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ControleRecomandacoes.Test/ControleRecomandacoes.Test.csproj",
+                "${workspaceFolder}/ControleRecommads.Test/ControleRecommads.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/ControleRecomandacoes.Test/ControleRecomandacoes.Test.csproj"
+                "${workspaceFolder}/ControleRecommads.Test/ControleRecommads.Test.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
