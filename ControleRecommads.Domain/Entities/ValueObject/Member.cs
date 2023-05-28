@@ -32,9 +32,14 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 
         public override bool Equals(Object? obj)
         {
-
-            return obj is Member member &&
-                FirstName == member.FirstName &&
+            if (obj == null)
+                return false;
+            Member member = obj as Member;
+            if (member == null)
+                return false;
+            if (base.Equals(obj))
+                return true;
+            return FirstName == member.FirstName &&
                 LastName == member.LastName &&
                 TelefoneNumber == member.TelefoneNumber &&
                 Residence == member.Residence;
