@@ -7,7 +7,7 @@ namespace ControleRecommads.Test.FakeRepositories
 {
     public class FakeIssuedRepository : IRecommendationRepository<IssuedRecommendation>
     {
-        private List<IssuedRecommendation> issuedRecommendations = new List<IssuedRecommendation>(){
+        private List<IssuedRecommendation> issuedRecommendations = new(){
             new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
             new IssuedRecommendation(new("Joana", "Jandira", 888888), new("Morro dos Veados", "Benfica")),
             new IssuedRecommendation(new("Antonio", "Pedro", 7777777), new("bereia ", "Maianga")),

@@ -42,9 +42,14 @@ namespace ControleRecommads.Test.HandlerTest
 
         [TestMethod]
         [TestCategory("Handler")]
-        public void Dada_uma_Carta_Invalida_Solicitar_Outra_Carta()
+        public void Dada_uma_Carta_Devolvida_Solicitar_Outra_Carta()
         {
-            Assert.Fail();
+            var rec = _fake.GetRecommendationValid(_member);
+            rec.UpdateStateDevolvido(new DateTime(2023, 05, 29));
+
+            var result = (CommandResult)_handler.Handler(_comand);
+
+            Assert.AreEqual(true, result.Sucesses);
         }
         [TestMethod]
         [TestCategory("Handler")]
