@@ -14,6 +14,10 @@ namespace ControleRecommads.Test.HandlerTest
         private readonly IssuedRecommendationHandler _handler = new IssuedRecommendationHandler(new FakeIssuedRepository());
         private readonly FakeIssuedRepository _fake = new FakeIssuedRepository();
         private readonly Member _member = new("Raul", "Mateia", 9999999);
+        private readonly IssuedRecommendationHandler _handerRetorn = new IssuedRecommendationHandler(new FakeIssuedRepository());
+
+        private IssuedRecommendation _selecRecommendation;
+        private readonly RetornRecommendationCommand _commandReturn = new RetornRecommendationCommand(Guid.NewGuid(), new DateTime(2023, 05, 29));
 
         [TestMethod]
         [TestCategory("Handler")]
@@ -69,7 +73,15 @@ namespace ControleRecommads.Test.HandlerTest
         [TestCategory("Handler")]
         public void Dado_Uma_Recomendacao_Solicitada_Valida_Actualizar_Estado_Para_Devolvido()
         {
-            Assert.Fail();
+            var issuedRecommendations = _fake.GetAllReceivedRecommendation();
+            foreach (var item in issuedRecommendations)
+            {
+                if (item.Member.Equals(_member))
+                    _selecRecommendation = item;
+            }
+            var result = (CommandResult)_handerRetorn
+                    .Handler(new RetornRecommendationCommand(_selecRecommendation.Id, new DateTime(2023, 05, 29)));
+            Assert.IsTrue(result.Sucesses);
         }
     }
 }

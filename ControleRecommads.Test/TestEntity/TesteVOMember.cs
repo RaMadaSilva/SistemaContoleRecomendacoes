@@ -9,19 +9,19 @@ namespace ControleRecommads.Test.TestEntity
     [TestClass]
     public class TesteVOMember
     {
-        private readonly Member membro_1 = new Member("Raul", "Silva", 11111);
+        private readonly Member member_1 = new Member("Raul", "Silva", 11111);
         private readonly Member member_2 = new Member("Raul", "Silva", 11111);
         private readonly Member member_3 = new Member("Jandira", "SIlva", 222222);
 
         [TestMethod]
         [TestCategory("ValueObject")]
         public void Dado_Dois_Membro_Vericar_Se_Sao_Iguais()
-            => Assert.IsTrue(membro_1.Equals(member_2));
+            => Assert.IsTrue(member_1.Equals(member_2));
 
         [TestMethod]
         [TestCategory("ValueObject")]
         public void Dado_Dois_Membros_Diferente_Verificar()
-            => Assert.IsFalse(membro_1.Equals(member_3));
+            => Assert.IsFalse(member_1.Equals(member_3));
 
     }
 }
