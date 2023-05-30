@@ -9,5 +9,11 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public abstract class ValueObject : Notifiable<Notification>
     {
+        protected ValueObject()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public Guid Id { get; set; }
     }
 }
