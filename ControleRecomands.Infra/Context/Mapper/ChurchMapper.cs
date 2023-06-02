@@ -1,8 +1,3 @@
-using System.IO.Compression;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ControleRecommads.Domain.Entities.ValueObject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -31,8 +26,6 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("Localization")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(200);
-
-
         }
     }
 }

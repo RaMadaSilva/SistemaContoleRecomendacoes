@@ -40,8 +40,6 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("Residence")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(200);
-
-
         }
     }
 }
