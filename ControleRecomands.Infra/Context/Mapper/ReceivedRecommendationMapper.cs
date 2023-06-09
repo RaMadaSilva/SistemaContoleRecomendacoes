@@ -8,7 +8,34 @@ namespace ControleRecomands.Infra.Context.Mapper
     {
         public void Configure(EntityTypeBuilder<ReceivedRecommendation> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("ReceivedRecommendation");
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                .IsRequired();
+
+            builder.Property(x => x.State)
+                .IsRequired()
+                .HasColumnName("StateRecommendation");
+
+            builder.Property<DateTime>(x => x.EntryDate)
+                .IsRequired()
+                .HasColumnName("EntryDate");
+
+            builder.Property<DateTime>(x => x.RecommendationDate)
+                .IsRequired()
+                .HasColumnName("RecommendationDate");
+
+            builder.Property<DateTime>(x => x.ValidateDate)
+                .IsRequired()
+                .HasColumnName("ValidateDate");
+
+            builder.Property<DateTime?>(x => x.DevolutionDate)
+                .HasColumnName("RetornDate");
+
+            builder.Property<string?>(x => x.AttachmentRecommendationUrl)
+                .HasColumnName("AttachmentRecommendationUrl")
+                .HasMaxLength(300);
         }
     }
 }
