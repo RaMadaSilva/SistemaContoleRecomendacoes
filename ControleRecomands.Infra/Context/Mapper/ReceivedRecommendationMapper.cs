@@ -36,6 +36,17 @@ namespace ControleRecomands.Infra.Context.Mapper
             builder.Property<string?>(x => x.AttachmentRecommendationUrl)
                 .HasColumnName("AttachmentRecommendationUrl")
                 .HasMaxLength(300);
+
+            //Relacionamentos
+            builder.HasOne(x => x.Member)
+                .WithMany()
+                .HasForeignKey("MemberId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Origin)
+                .WithMany()
+                .HasForeignKey("ChurchId")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

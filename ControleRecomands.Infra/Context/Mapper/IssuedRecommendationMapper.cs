@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using ControleRecommads.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -39,7 +40,15 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasMaxLength(300);
 
             //Relacionamentos por fazer
-            //Membro; Igreja; 
+            builder.HasOne(x => x.Member)
+                .WithMany()
+                .HasForeignKey("MemberId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Destiny)
+                .WithMany()
+                .HasForeignKey("ChurchId")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
