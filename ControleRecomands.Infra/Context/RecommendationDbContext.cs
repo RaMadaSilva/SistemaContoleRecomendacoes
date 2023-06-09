@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ControleRecommads.Domain.Entities;
+using ControleRecommads.Domain.Entities.ValueObject;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleRecomands.Infra.Context
@@ -13,5 +11,9 @@ namespace ControleRecomands.Infra.Context
         {
 
         }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Church> Churches { get; set; }
+        public DbSet<IssuedRecommendation> IssuedRecommendations { get; set; }
+        public DbSet<ReceivedRecommendation> ReceivedRecommendations { get; set; }
     }
 }
