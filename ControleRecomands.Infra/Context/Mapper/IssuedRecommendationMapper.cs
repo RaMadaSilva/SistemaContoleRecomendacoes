@@ -15,6 +15,29 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .IsRequired()
                 .HasColumnName("Id");
 
+            builder.Property(x => x.State)
+                .IsRequired()
+                .HasColumnName("StateRecommendation");
+
+            builder.Property<DateTime>(x => x.EntryDate)
+                .IsRequired()
+                .HasColumnName("EntryDate");
+
+            builder.Property<DateTime>(x => x.RecommendationDate)
+                .IsRequired()
+                .HasColumnName("RecommendationDate");
+
+            builder.Property<DateTime>(x => x.ValidateDate)
+                .IsRequired()
+                .HasColumnName("ValidateDate");
+
+            builder.Property<DateTime?>(x => x.DevolutionDate)
+                .HasColumnName("DevolutionDate");
+
+            builder.Property<string?>(x => x.RecommendationGeneratedUrl)
+                .HasColumnName("RecommendationGenerateUrl")
+                .HasMaxLength(200);
+
             //Relacionamentos por fazer
             //Membro; Igreja; 
         }
