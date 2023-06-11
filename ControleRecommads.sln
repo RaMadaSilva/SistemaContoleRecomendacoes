@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleRecommads.Test", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleRecomands.Infra", "ControleRecomands.Infra\ControleRecomands.Infra.csproj", "{C892A383-3367-4889-96ED-D4C42FF63970}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleRecommands.Api", "ControleRecommands.Api\ControleRecommands.Api.csproj", "{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +60,17 @@ Global
 		{C892A383-3367-4889-96ED-D4C42FF63970}.Release|x64.Build.0 = Release|Any CPU
 		{C892A383-3367-4889-96ED-D4C42FF63970}.Release|x86.ActiveCfg = Release|Any CPU
 		{C892A383-3367-4889-96ED-D4C42FF63970}.Release|x86.Build.0 = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|x64.Build.0 = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Debug|x86.Build.0 = Debug|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|x64.ActiveCfg = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|x64.Build.0 = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|x86.ActiveCfg = Release|Any CPU
+		{83AC01CF-DB98-4B59-8DC8-3B2AC9960DD2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
