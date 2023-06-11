@@ -1,11 +1,11 @@
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
-using ControleRecommads.Domain.Repositories;
+using ControleRecommads.Domain.IRepositories;
 
 namespace ControleRecommads.Test.FakeRepositories
 {
-    public class FakeReceivedRepository : IRecommendationRepository<ReceivedRecommendation>
+    public class FakeReceivedRepository : IRepositoryBase<ReceivedRecommendation>
     {
         private List<ReceivedRecommendation> receivedRecommendations = new()
         {
@@ -18,11 +18,27 @@ namespace ControleRecommads.Test.FakeRepositories
             new ReceivedRecommendation(new("Helena",  "João", 777777777, "Cazenga"), new DateTime(1995, 05, 19), new("Central do Cazenga", "Cazenga")),
 
         };
+
+        public void Create(ReceivedRecommendation recommendation)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<ReceivedRecommendation> GetAllReceivedRecommendation()
             => receivedRecommendations;
 
         public IList<ReceivedRecommendation> GetAllReceivedRecommendationWithState(ERecommendationState state)
             => receivedRecommendations.Where(x => x.State == state).ToList();
+
+        public IEnumerable<ReceivedRecommendation> GetAllRecommendation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ReceivedRecommendation> GetAllRecommendationWithState(ERecommendationState state)
+        {
+            throw new NotImplementedException();
+        }
 
         public ReceivedRecommendation GetRecommendation(Guid id)
             => receivedRecommendations.Where(x => x.Id == id).FirstOrDefault();
