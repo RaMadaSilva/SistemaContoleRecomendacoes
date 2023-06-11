@@ -29,7 +29,7 @@ namespace ControleRecommads.Domain.Entities.ValueObject
         {
             if (obj == null)
                 return false;
-            Member member = obj as Member;
+            Member? member = obj as Member;
             if (member == null)
                 return false;
             if (base.Equals(obj))

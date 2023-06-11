@@ -4,18 +4,18 @@ using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
 using ControleRecommads.Domain.Handler.Interface;
-using ControleRecommads.Domain.Repositories;
+using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using Flunt.Notifications;
 
 namespace ControleRecommads.Domain.Handler
 {
     public class ReceivedRecommendationHandler : Notifiable<Notification>, IHandler<ReceiveCommand>, IHandler<RetornRecommendationCommand>
     {
-        private readonly IRecommendationRepository<ReceivedRecommendation> _repostory;
+        private readonly IUniteOfWork _uow;
 
-        public ReceivedRecommendationHandler(IRecommendationRepository<ReceivedRecommendation> repostory)
+        public ReceivedRecommendationHandler(IUniteOfWork uow)
         {
-            _repostory = repostory;
+            _uow = uow;
         }
 
         public ICommandResult Handler(ReceiveCommand command)
@@ -27,7 +27,7 @@ namespace ControleRecommads.Domain.Handler
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
 
-            var recommendation = _repostory.GetRecommendationValid(member);
+            var recommendation = _uow.ReceivedRecommendationRepository.GetRecommendationValid(member);
 
             if (recommendation != null)
                 return new CommandResult(false, "Este Membro já tem uma recomandação valida", recommendation);
@@ -40,8 +40,7 @@ namespace ControleRecommads.Domain.Handler
             //3# Salva no bsnco de dados
             if (!IsValid)
                 return new CommandResult(false, "Não foi possivel salvar a recomendação recebida", Notifications);
-            _repostory.Save(received);
-
+            _uow.Commit();
             //4# retornar o resultado 
 
             return new CommandResult(true, "Recomendação salva com sucesso", received);
@@ -50,7 +49,7 @@ namespace ControleRecommads.Domain.Handler
         public ICommandResult Handler(RetornRecommendationCommand command)
         {
             //pegar a carta do banco de dedos
-            var recommendation = _repostory.GetRecommendation(command.Id);
+            var recommendation = _uow.ReceivedRecommendationRepository.GetRecommendation(command.Id);
 
             if (recommendation == null || recommendation.State != ERecommendationState.valido)
             {
@@ -60,7 +59,7 @@ namespace ControleRecommads.Domain.Handler
 
             //Caso Exista a recomendação e o seu estado seja valida
             recommendation.UpdateStateDevolvido(command.RetornDate);
-            _repostory.UpdateRecommendation(recommendation);
+            _uow.ReceivedRecommendationRepository.UpdateRecommendation(recommendation);
 
             return new CommandResult(true, "Recomendação actualizada com sucesso", recommendation);
         }
