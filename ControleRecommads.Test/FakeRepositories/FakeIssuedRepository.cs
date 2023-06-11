@@ -1,11 +1,12 @@
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
-using ControleRecommads.Domain.Repositories;
+using ControleRecommads.Domain.IRepositories;
+
 
 namespace ControleRecommads.Test.FakeRepositories
 {
-    public class FakeIssuedRepository : IRecommendationRepository<IssuedRecommendation>
+    public class FakeIssuedRepository : IRepositoryBase<IssuedRecommendation>
     {
         private List<IssuedRecommendation> issuedRecommendations = new(){
             new IssuedRecommendation(new("Raul", "Mateia", 9999999), new("Monte das Oliveira", "Maianga")),
@@ -14,11 +15,26 @@ namespace ControleRecommads.Test.FakeRepositories
             new IssuedRecommendation(new("Raul", "Mateia", 6666666), new("Monte das Oliveira", "Maianga")),
         };
 
+        public void Create(IssuedRecommendation recommendation)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<IssuedRecommendation> GetAllReceivedRecommendation()
             => issuedRecommendations;
 
         public IList<IssuedRecommendation> GetAllReceivedRecommendationWithState(ERecommendationState state)
             => issuedRecommendations.Where(x => x.State == state).ToList();
+
+        public IEnumerable<IssuedRecommendation> GetAllRecommendation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IssuedRecommendation> GetAllRecommendationWithState(ERecommendationState state)
+        {
+            throw new NotImplementedException();
+        }
 
         public IssuedRecommendation GetRecommendation(Guid id)
         {
