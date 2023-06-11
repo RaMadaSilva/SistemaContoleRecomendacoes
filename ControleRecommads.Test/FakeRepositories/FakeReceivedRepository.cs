@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
@@ -35,9 +37,10 @@ namespace ControleRecommads.Test.FakeRepositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ReceivedRecommendation> GetAllRecommendationWithState(ERecommendationState state)
+        public IEnumerable<ReceivedRecommendation> GetAllRecommendationWithState(Expression<Func<ReceivedRecommendation, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return receivedRecommendations
+                .Where(x => x.State.Equals(predicate)).ToList();
         }
 
         public ReceivedRecommendation GetRecommendation(Guid id)

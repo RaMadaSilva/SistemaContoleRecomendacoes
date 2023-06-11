@@ -2,6 +2,7 @@ using ControleRecommads.Domain.Commands;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.ValueObject;
 using ControleRecommads.Domain.Handler;
+using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using ControleRecommads.Test.FakeRepositories;
 
 namespace ControleRecommads.Test.HandlerTest
@@ -9,12 +10,15 @@ namespace ControleRecommads.Test.HandlerTest
     [TestClass]
     public class IssuedHandlerTeste
     {
+
+        //Este Fake não está a funcionar como esperado
+
         private readonly IssueCommand _comand = new IssueCommand("Raul", "Mateia", 9999999, "Mabor", "Cazenga");
         private readonly IssueCommand _ComandNew = new IssueCommand("Maria", "Manuela", 9999999, "Zango", "Viana");
-        private readonly IssuedRecommendationHandler _handler = new IssuedRecommendationHandler(new FakeIssuedRepository());
+        private readonly IssuedRecommendationHandler _handler = new IssuedRecommendationHandler(new FakeUniteOfWork());
         private readonly FakeIssuedRepository _fake = new FakeIssuedRepository();
         private readonly Member _member = new("Raul", "Mateia", 9999999);
-        private readonly IssuedRecommendationHandler _handerRetorn = new IssuedRecommendationHandler(new FakeIssuedRepository());
+        private readonly IssuedRecommendationHandler _handerRetorn = new IssuedRecommendationHandler(new FakeUniteOfWork());
 
         private IssuedRecommendation _selecRecommendation;
         private readonly RetornRecommendationCommand _commandReturn = new RetornRecommendationCommand(Guid.NewGuid(), new DateTime(2023, 05, 29));
@@ -73,7 +77,7 @@ namespace ControleRecommads.Test.HandlerTest
         [TestCategory("Handler")]
         public void Dado_Uma_Recomendacao_Solicitada_Valida_Actualizar_Estado_Para_Devolvido()
         {
-            var issuedRecommendations = _fake.GetAllReceivedRecommendation();
+            var issuedRecommendations = _fake.GetAllRecommendation();
             foreach (var item in issuedRecommendations)
             {
                 if (item.Member.Equals(_member))

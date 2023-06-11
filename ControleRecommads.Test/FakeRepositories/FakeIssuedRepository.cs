@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
@@ -20,20 +21,15 @@ namespace ControleRecommads.Test.FakeRepositories
             throw new NotImplementedException();
         }
 
-        public IList<IssuedRecommendation> GetAllReceivedRecommendation()
-            => issuedRecommendations;
-
         public IList<IssuedRecommendation> GetAllReceivedRecommendationWithState(ERecommendationState state)
             => issuedRecommendations.Where(x => x.State == state).ToList();
 
         public IEnumerable<IssuedRecommendation> GetAllRecommendation()
-        {
-            throw new NotImplementedException();
-        }
+            => issuedRecommendations;
 
-        public IEnumerable<IssuedRecommendation> GetAllRecommendationWithState(ERecommendationState state)
+        public IEnumerable<IssuedRecommendation> GetAllRecommendationWithState(Expression<Func<IssuedRecommendation, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return issuedRecommendations.Where(x => x.State.Equals(predicate)).ToList();
         }
 
         public IssuedRecommendation GetRecommendation(Guid id)
