@@ -1,10 +1,15 @@
+using ControleRecomands.Infra.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-var connection = builder.
+var connetions = builder.Configuration.GetConnectionString("Default");
+
+builder.Services.AddDbContext<RecommendationDbContext>(options=>options.UseSqlServer(connetions)); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

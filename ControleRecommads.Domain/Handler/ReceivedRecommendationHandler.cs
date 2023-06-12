@@ -41,6 +41,7 @@ namespace ControleRecommads.Domain.Handler
             if (!IsValid)
                 return new CommandResult(false, "Não foi possivel salvar a recomendação recebida", Notifications);
             _uow.Commit();
+
             //4# retornar o resultado 
 
             return new CommandResult(true, "Recomendação salva com sucesso", received);
