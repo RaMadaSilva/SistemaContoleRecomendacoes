@@ -4,18 +4,18 @@ using ControleRecommads.Domain.IRepositories;
 
 namespace ControleRecomands.Infra.Repositories
 {
-    public class MembreRepository : IMemberRepository
+    public class ValueObjectRepository<V> : IValueObjectRepository<V> where V : ValueObject
     {
         private readonly RecommendationDbContext _context;
 
-        public MembreRepository(RecommendationDbContext context)
+        public ValueObjectRepository(RecommendationDbContext context)
         {
             _context = context;
         }
 
-        public void AddMembrer(Member member)
+        public void Add(V valueObject)
         {
-            _context.Set<Member>().Add(member);
+            _context.Set<V>().Add(valueObject);
         }
     }
 }

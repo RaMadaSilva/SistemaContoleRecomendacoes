@@ -2,8 +2,8 @@ using ControleRecommads.Domain.Entities.ValueObject;
 
 namespace ControleRecommads.Domain.IRepositories
 {
-    public interface IMemberRepository
+    public interface IValueObjectRepository<V> where V : ValueObject
     {
-        void AddMembrer(Member member);
+        void Add(V valueObject);
     }
 }
