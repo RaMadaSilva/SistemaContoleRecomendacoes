@@ -40,6 +40,10 @@ namespace ControleRecommads.Domain.Handler
             //3# Salva no bsnco de dados
             if (!IsValid)
                 return new CommandResult(false, "Não foi possivel salvar a recomendação recebida", Notifications);
+
+            _uow.ChurchRepository.Add(church);
+            _uow.MemberRepository.Add(member);
+            _uow.ReceivedRecommendationRepository.Create(received);
             _uow.Commit();
 
             //4# retornar o resultado 
@@ -61,6 +65,7 @@ namespace ControleRecommads.Domain.Handler
             //Caso Exista a recomendação e o seu estado seja valida
             recommendation.UpdateStateDevolvido(command.RetornDate);
             _uow.ReceivedRecommendationRepository.UpdateRecommendation(recommendation);
+            _uow.Commit();
 
             return new CommandResult(true, "Recomendação actualizada com sucesso", recommendation);
         }

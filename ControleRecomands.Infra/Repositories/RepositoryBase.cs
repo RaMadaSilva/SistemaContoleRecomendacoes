@@ -20,7 +20,7 @@ namespace ControleRecomands.Infra.Repositories
 
         public void Create(T recommendation)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(recommendation);
         }
         public IEnumerable<T> GetAllRecommendation()
         {

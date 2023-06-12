@@ -10,8 +10,8 @@ public class UniteOfWork : IUniteOfWork
 {
     private IRepositoryBase<ReceivedRecommendation> receivedRecommendationRepository;
     private IRepositoryBase<IssuedRecommendation> issuedRecommendationRepository;
-    private IMemberRepository memberRepository;
-    private IChurchRepository churchRepository;
+    private IValueObjectRepository<Member> memberRepository;
+    private IValueObjectRepository<Church> churchRepository;
 
     private readonly RecommendationDbContext _context;
 
@@ -36,20 +36,20 @@ public class UniteOfWork : IUniteOfWork
         }
     }
 
-    public IMemberRepository MemberRepository
+    public IValueObjectRepository<Member> MemberRepository
     {
         get
         {
-            return memberRepository ?? new MembreRepository(_context);
+            return memberRepository ?? new ValueObjectRepository<Member>(_context);
         }
 
     }
 
-    public IChurchRepository ChurchRepository
+    public IValueObjectRepository<Church> ChurchRepository
     {
         get
         {
-            return churchRepository ?? new ChurchRepository(_context);
+            return churchRepository ?? new ValueObjectRepository<Church>(_context);
         }
 
     }

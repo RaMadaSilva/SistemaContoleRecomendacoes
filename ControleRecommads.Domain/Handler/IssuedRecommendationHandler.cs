@@ -43,6 +43,9 @@ namespace ControleRecommads.Domain.Handler
             //3# Salvar a Carta de recomendação solicitada
             if (!IsValid)
                 return new CommandResult(false, "Membro, ou igreja Invalida", Notifications);
+            _uow.ChurchRepository.Add(church);
+            _uow.MemberRepository.Add(member);
+            _uow.IssuedRecommendationRepository.Create(issueRecommendation);
             _uow.Commit();
 
             //4# Retornar a carta solicitada
@@ -63,6 +66,7 @@ namespace ControleRecommads.Domain.Handler
             //Caso Exista a recomendação e o seu estado seja valida
             recommendation.UpdateStateDevolvido(command.RetornDate);
             _uow.IssuedRecommendationRepository.UpdateRecommendation(recommendation);
+            _uow.Commit();
 
             return new CommandResult(true, "Recomendação actualizada com sucesso", recommendation);
         }
