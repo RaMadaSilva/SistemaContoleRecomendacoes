@@ -6,10 +6,10 @@ namespace ControleRecommads.Domain.Entities;
 
 public abstract class Recommendation : Entity
 {
-    protected Recommendation(IList<Member> members, DateTime recommendationDate, Church church)
+    protected Recommendation(Member member, DateTime recommendationDate, Church church)
     {
-        Members = members;
-        if (members.Count > 0)
+        Member = member;
+        if (member.IsValid)
             State = ERecommendationState.valido;
         EntryDate = DateTime.Now;
         RecommendationDate = recommendationDate;
@@ -25,7 +25,7 @@ public abstract class Recommendation : Entity
 
     }
 
-    public IList<Member> Members { get; private set; }
+    public Member Member { get; private set; }
     public ERecommendationState State { get; private set; }
     public DateTime EntryDate { get; private set; }
     public DateTime RecommendationDate { get; private set; }

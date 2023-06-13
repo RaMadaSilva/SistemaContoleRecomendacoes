@@ -22,11 +22,19 @@ namespace ControleRecommads.Domain.Handler
 
         public ICommandResult Handler(IssueCommand command)
         {
-            var member = new Member(command.FirstName, command.LastName, command.PhoneNumber);
-            var church = new Church(command.NameChurch, command.Localization);
+            var nameMember = new Name(command.NameComplete);
+            var nameChurch = new Name(command.NameChurch);
+            var adressChurch = new Adress(command.CityChurc, command.ReferenceChurch);
+            var adressMember = new Adress(command.CityMember, command.ReferenceMember);
+            var member = new Member(nameMember, command.PhoneMember, adressMember);
+            var church = new Church(nameChurch, adressChurch);
 
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
+            nameChurch.AddNotifications(Notifications);
+            adressChurch.AddNotifications(Notifications);
+            nameMember.AddNotifications(Notifications);
+            adressMember.AddNotifications(Notifications);
 
             //1# verificar se o membro tem uma carta de recomendação solicitada valida
             var recommendation = _uow.IssuedRecommendationRepository.GetRecommendationValid(member);

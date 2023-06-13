@@ -4,23 +4,21 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Member : Entity
     {
-        public Member(Name name, uint phone, Church church, Adress adress)
+        public Member(Name name, uint phone, Adress adress)
         {
             AddNotifications(new Contract<Name>()
                     .Requires()
                     .IsNotNull(phone, "O numero de telefone é obrigatorio"));
             name.AddNotifications(Notifications);
-
+        
             Name = name;
             Phone = phone;
             Adress = adress;
-            Church = church;
         }
 
         public Name Name { get; private set; }
         public uint Phone { get; private set; }
         public Adress Adress { get; private set; }
-        public Church Church { get; private set; }
         public IList<Recommendation> Recommendations { get; private set; }
 
         public void AddRecommendations(Recommendation recommendation)

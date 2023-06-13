@@ -22,8 +22,18 @@ namespace ControleRecommads.Domain.Handler
         {
 
             //1# Verificar se  a ja existe uma carta de recomendação e é valida?
-            var member = new Member(command.FirstName, command.LastName, command.PhoneNumber, command.CurrentAdress);
-            var church = new Church(command.NameChurch, command.Localization);
+            var nameMember = new Name(command.NameMember); 
+            var adressMember = new Adress(command.CyteMember, command.ReferenceMember); 
+            var nameChurch = new Name(command.NameChurch); 
+            var adressChurch = new Adress(command.CyteChurch, command.ReferenceChurch); 
+            var member = new Member(nameMember, command.PhoneMember, adressMember);
+            var church = new Church(nameChurch, adressChurch);
+
+
+            nameMember.AddNotifications(Notifications);
+            adressMember.AddNotifications(Notifications);
+            nameChurch.AddNotifications(Notifications);
+            adressChurch.AddNotifications(Notifications);
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
 

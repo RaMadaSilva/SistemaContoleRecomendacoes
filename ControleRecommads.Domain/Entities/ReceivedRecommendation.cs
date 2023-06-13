@@ -4,8 +4,8 @@ namespace ControleRecommads.Domain.Entities;
 
 public class ReceivedRecommendation : Recommendation
 {
-    public ReceivedRecommendation(IList<Member> members, DateTime recommandationDate, Church origin)
-        : base(members, recommandationDate, origin)
+    public ReceivedRecommendation(Member member, DateTime recommandationDate, Church origin)
+        : base(member, recommandationDate, origin)
     {
         AttachmentRecommendationUrl = null;
     }

@@ -4,7 +4,7 @@ namespace ControleRecommads.Domain.Entities;
 
 public class IssuedRecommendation : Recommendation
 {
-    public IssuedRecommendation(IList<Member> members, Church destiny) : base(members, DateTime.Now, destiny)
+    public IssuedRecommendation(Member member, Church destiny) : base(member, DateTime.Now, destiny)
     {
 
         RecommendationGeneratedUrl = null;
