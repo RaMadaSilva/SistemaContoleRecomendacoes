@@ -6,29 +6,32 @@ namespace ControleRecommads.Domain.Entities;
 
 public abstract class Recommendation : Entity
 {
-    protected Recommendation(Member member, DateTime recommendationDate)
+    protected Recommendation(IList<Member> members, DateTime recommendationDate, Church church)
     {
-        Member = member;
-        if (member.IsValid)
+        Members = members;
+        if (members.Count > 0)
             State = ERecommendationState.valido;
         EntryDate = DateTime.Now;
         RecommendationDate = recommendationDate;
         ValidateDate = recommendationDate.AddDays(180);
+        Church = church;
         DevolutionDate = null;
 
         AddNotifications(new Contract<Recommendation>()
         .Requires()
         .IsGreaterThan(ValidateDate, EntryDate, "Data Invalida!"));
 
-        Member.AddNotifications(Notifications);
+        Church.AddNotifications(Notifications);
+
     }
 
-    public Member Member { get; private set; }
+    public IList<Member> Members { get; private set; }
     public ERecommendationState State { get; private set; }
     public DateTime EntryDate { get; private set; }
     public DateTime RecommendationDate { get; private set; }
     public DateTime ValidateDate { get; private set; }
     public DateTime? DevolutionDate { get; private set; }
+    public Church Church { get; private set; }
 
     public void UpdateStateDevolvido(DateTime date)
     {

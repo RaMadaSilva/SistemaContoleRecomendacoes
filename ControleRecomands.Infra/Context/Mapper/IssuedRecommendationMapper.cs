@@ -39,16 +39,8 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("RecommendationGenerateUrl")
                 .HasMaxLength(300);
 
-            //Relacionamentos por fazer
-            builder.HasOne(x => x.Member)
-                .WithMany()
-                .HasForeignKey("MemberId")
-                .OnDelete(DeleteBehavior.Cascade);
+            //Relacionamentos por fazer 
 
-            builder.HasOne(x => x.Destiny)
-                .WithMany()
-                .HasForeignKey("ChurchId")
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

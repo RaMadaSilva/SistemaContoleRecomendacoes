@@ -21,11 +21,6 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
-            builder.Property(x => x.Localization)
-                .IsRequired()
-                .HasColumnName("Localization")
-                .HasColumnType("NVARCHAR")
-                .HasMaxLength(200);
         }
     }
 }

@@ -9,7 +9,6 @@ using Flunt.Notifications;
 
 namespace ControleRecommads.Domain.Handler
 {
-
     public class IssuedRecommendationHandler : Notifiable<Notification>,
         IHandler<IssueCommand>,
         IHandler<RetornRecommendationCommand>
@@ -21,8 +20,6 @@ namespace ControleRecommads.Domain.Handler
             _uow = uow;
         }
 
-
-
         public ICommandResult Handler(IssueCommand command)
         {
             var member = new Member(command.FirstName, command.LastName, command.PhoneNumber);
@@ -30,7 +27,6 @@ namespace ControleRecommads.Domain.Handler
 
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
-
 
             //1# verificar se o membro tem uma carta de recomendação solicitada valida
             var recommendation = _uow.IssuedRecommendationRepository.GetRecommendationValid(member);

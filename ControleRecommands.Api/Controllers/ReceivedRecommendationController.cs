@@ -1,7 +1,5 @@
 using ControleRecommads.Domain.Commands;
-using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Handler;
-using ControleRecommads.Domain.Handler.Interface;
 using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,9 +23,7 @@ namespace ControleRecommands.Api.Controllers
         {
             var result = _handle.Handler(command);
             return Ok(result);
-
         }
-
 
         [HttpGet("")]
         public IActionResult Get()
@@ -38,6 +34,5 @@ namespace ControleRecommands.Api.Controllers
                 return NotFound();
             return Ok(rec);
         }
-
     }
 }

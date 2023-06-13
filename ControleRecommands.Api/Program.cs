@@ -1,4 +1,6 @@
 using ControleRecomands.Infra.Context;
+using ControleRecomands.Infra.Repositories.UniteOfWork;
+using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-var connetions = builder.Configuration.GetConnectionString("Default");
+var connetions = builder.Configuration.GetConnectionString("connectionDb");
 
-builder.Services.AddDbContext<RecommendationDbContext>(options=>options.UseSqlServer(connetions)); 
+builder.Services.AddDbContext<RecommendationDbContext>(options => options.UseSqlServer(connetions));
+builder.Services.AddTransient<IUniteOfWork, UniteOfWork>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
