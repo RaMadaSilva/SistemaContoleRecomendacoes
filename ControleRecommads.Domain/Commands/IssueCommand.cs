@@ -4,24 +4,29 @@ namespace ControleRecommads.Domain.Commands
 {
     public class IssueCommand : ICommand
     {
-        public IssueCommand(string firstName,
-                    string lastName,
-                    uint phoneNumber,
-                    string nameChurch,
-                    string localization)
+        public IssueCommand(string nameComplete,
+            string cityMember,
+            string referenceMember,
+            uint phoneMember,
+            string nameChurch,
+            string cityChurc,
+            string referenceChurch)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            PhoneNumber = phoneNumber;
+            NameComplete = nameComplete;
+            CityMember = cityMember;
+            ReferenceMember = referenceMember;
+            PhoneMember = phoneMember;
             NameChurch = nameChurch;
-            Localization = localization;
+            CityChurc = cityChurc;
+            ReferenceChurch = referenceChurch;
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public uint PhoneNumber { get; set; }
+        public string NameComplete { get; set; }
+        public string CityMember { get; set; }
+        public string ReferenceMember { get; set; }
+        public uint PhoneMember { get; set; }
         public string NameChurch { get; set; }
-        public string Localization { get; set; }
-
+        public string CityChurc { get; set; }
+        public string ReferenceChurch { get; set; }
     }
 }

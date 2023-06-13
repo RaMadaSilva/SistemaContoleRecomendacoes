@@ -4,31 +4,32 @@ namespace ControleRecommads.Domain.Commands
 {
     public class ReceiveCommand : ICommand
     {
-        public ReceiveCommand(string firstName,
-                string lastName,
-                uint phoneNumber,
+        public ReceiveCommand(string nameMember,
+                string cyteMember,
+                string referenceMember,
+                uint phoneMember,
                 DateTime dataReceive,
                 string nameChurch,
-                string localization,
-                string currentAdress)
+                string cyteChurch,
+                string referenceChurch)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            PhoneNumber = phoneNumber;
+            NameMember = nameMember;
+            CyteMember = cyteMember;
+            ReferenceMember = referenceMember;
+            PhoneMember = phoneMember;
             DataReceive = dataReceive;
             NameChurch = nameChurch;
-            Localization = localization;
-            CurrentAdress = currentAdress;
+            CyteChurch = cyteChurch;
+            ReferenceChurch = referenceChurch;
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public uint PhoneNumber { get; set; }
+        public string NameMember { get; set; }
+        public string CyteMember { get; set; }
+        public string ReferenceMember { get; set; }
+        public uint PhoneMember { get; set; }
         public DateTime DataReceive { get; set; }
         public string NameChurch { get; set; }
-        public string Localization { get; set; }
-
-        public string CurrentAdress { get; set; }
-
+        public string CyteChurch { get; set; }
+        public string ReferenceChurch { get; set; }
     }
 }
