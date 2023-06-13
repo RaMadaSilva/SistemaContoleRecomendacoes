@@ -39,7 +39,9 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("RecommendationGenerateUrl")
                 .HasMaxLength(300);
 
-            //Relacionamentos por fazer 
+            //Realicionamento com a Igreja 
+            builder.HasOne(x => x.Church).WithMany(x =>x.Recommendations)
+            // Relacionamento com o Membro
 
         }
     }

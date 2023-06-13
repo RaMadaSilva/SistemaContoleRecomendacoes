@@ -15,27 +15,31 @@ namespace ControleRecomands.Infra.Context.Mapper
             .IsRequired()
             .HasColumnName("Id");
 
-            builder.Property(x => x.FirstName)
+            builder.OwnsOne(x => x.Name)
+                .Property(x =>x.NameComplete)
                 .IsRequired()
-                .HasColumnName("FistName")
+                .HasColumnName("NameComplete")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(50);
+                .HasMaxLength(100);
 
-            builder.Property(x => x.LastName)
-                .IsRequired()
-                .HasColumnName("LastName")
-                .HasColumnType("NVARCHAR")
-                .HasMaxLength(50);
-
-            builder.Property(x => x.TelefoneNumber)
+            builder.Property(x => x.Phone)
                 .IsRequired()
                 .HasColumnName("PhoneNumber")
                 .HasColumnType("INT");
 
-            builder.Property(x => x.Residence)
-                .HasColumnName("Residence")
+            builder.OwnsOne(x => x.Adress)
+                .Property(x =>x.City)
+                .IsRequired()
+                .HasColumnName("City")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(200);
+                .HasMaxLength(100);
+                
+            builder.OwnsOne(x => x.Adress)
+                .Property(x =>x.Reference)
+                .IsRequired()
+                .HasColumnName("Reference")
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(100);
         }
     }
 }

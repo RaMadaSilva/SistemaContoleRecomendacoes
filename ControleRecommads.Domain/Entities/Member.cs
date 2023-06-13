@@ -10,10 +10,12 @@ namespace ControleRecommads.Domain.Entities.ValueObject
                     .Requires()
                     .IsNotNull(phone, "O numero de telefone é obrigatorio"));
             name.AddNotifications(Notifications);
-        
+
             Name = name;
             Phone = phone;
             Adress = adress;
+
+            Recommendations = new List<Recommendation>();
         }
 
         public Name Name { get; private set; }
@@ -36,6 +38,11 @@ namespace ControleRecommads.Domain.Entities.ValueObject
             return Name == member.Name &&
                 Phone == member.Phone &&
                 Adress == member.Adress;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
         }
     }
 }
