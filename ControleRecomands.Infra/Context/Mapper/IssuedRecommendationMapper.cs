@@ -42,13 +42,13 @@ namespace ControleRecomands.Infra.Context.Mapper
             builder.HasOne(r => r.Member)
                 .WithMany()
                 .HasForeignKey("ChurchId")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             //Relacionamento com A Igreja 
             builder.HasOne(r => r.Church)
                 .WithMany()
                 .HasForeignKey("MemberId")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

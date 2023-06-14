@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ControleRecomands.Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class v1 : Migration
+    public partial class initializedMigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -68,13 +68,13 @@ namespace ControleRecomands.Infra.Migrations
                         column: x => x.MemberId,
                         principalTable: "Church",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Recommendation_Member_ChurchId",
                         column: x => x.ChurchId,
                         principalTable: "Member",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Recommendation_Member_MemberId1",
                         column: x => x.MemberId1,

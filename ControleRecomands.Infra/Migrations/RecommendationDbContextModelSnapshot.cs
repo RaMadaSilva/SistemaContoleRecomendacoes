@@ -133,7 +133,7 @@ namespace ControleRecomands.Infra.Migrations
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Member", "Member")
                         .WithMany()
                         .HasForeignKey("ChurchId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Church", null)
@@ -143,7 +143,7 @@ namespace ControleRecomands.Infra.Migrations
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Church", "Church")
                         .WithMany()
                         .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Member", null)

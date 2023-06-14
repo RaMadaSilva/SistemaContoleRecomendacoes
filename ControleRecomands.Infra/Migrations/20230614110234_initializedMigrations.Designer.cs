@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleRecomands.Infra.Migrations
 {
     [DbContext(typeof(RecommendationDbContext))]
-    [Migration("20230614103658_v1")]
-    partial class v1
+    [Migration("20230614110234_initializedMigrations")]
+    partial class initializedMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -136,7 +136,7 @@ namespace ControleRecomands.Infra.Migrations
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Member", "Member")
                         .WithMany()
                         .HasForeignKey("ChurchId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Church", null)
@@ -146,7 +146,7 @@ namespace ControleRecomands.Infra.Migrations
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Church", "Church")
                         .WithMany()
                         .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ControleRecommads.Domain.Entities.ValueObject.Member", null)
