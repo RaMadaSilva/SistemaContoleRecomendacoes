@@ -1,6 +1,7 @@
 using ControleRecomands.Infra.Context.Mapper;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.ValueObject;
+using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleRecomands.Infra.Context
@@ -19,6 +20,7 @@ namespace ControleRecomands.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Ignore<Notification>();
             mb.Entity<Recommendation>().HasKey(r => r.Id);
             mb.Entity<ReceivedRecommendation>().HasBaseType<Recommendation>();
             mb.Entity<IssuedRecommendation>().HasBaseType<Recommendation>();

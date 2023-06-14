@@ -40,7 +40,7 @@ namespace ControleRecomands.Infra.Context.Mapper
             //Relacionamento com membro
             builder.HasOne(r => r.Member)
                 .WithMany()
-                .HasForeignKey("")
+                .HasForeignKey("MemberId")
                 .OnDelete(DeleteBehavior.Cascade);
 
             //Relacionamento com A Igreja 
@@ -48,7 +48,6 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .WithMany()
                 .HasForeignKey("ChurchId")
                 .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }
