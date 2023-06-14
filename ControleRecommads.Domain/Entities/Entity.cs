@@ -8,10 +8,11 @@ namespace ControleRecommads.Domain.Entities
 {
     public abstract class Entity : Notifiable<Notification>
     {
-        public Entity()
+        protected Entity()
         {
             Id = Guid.NewGuid();
         }
+
         public Guid Id { get; set; }
     }
 }

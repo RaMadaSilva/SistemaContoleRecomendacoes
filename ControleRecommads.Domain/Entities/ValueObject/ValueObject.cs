@@ -9,6 +9,5 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public abstract class ValueObject : Notifiable<Notification>
     {
-
     }
 }

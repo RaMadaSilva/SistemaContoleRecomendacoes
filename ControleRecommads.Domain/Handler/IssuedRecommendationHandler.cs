@@ -47,8 +47,8 @@ namespace ControleRecommads.Domain.Handler
             //3# Salvar a Carta de recomendação solicitada
             if (!IsValid)
                 return new CommandResult(false, "Membro, ou igreja Invalida", Notifications);
-            _uow.ChurchRepository.Add(church);
-            _uow.MemberRepository.Add(member);
+            _uow.ChurchRepository.Create(church);
+            _uow.MemberRepository.Create(member);
             _uow.IssuedRecommendationRepository.Create(issueRecommendation);
             _uow.Commit();
 

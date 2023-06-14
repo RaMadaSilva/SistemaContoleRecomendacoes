@@ -16,7 +16,7 @@ namespace ControleRecomands.Infra.Context.Mapper
             .HasColumnName("Id");
 
             builder.OwnsOne(x => x.Name)
-                .Property(x =>x.NameComplete)
+                .Property(x => x.NameComplete)
                 .IsRequired()
                 .HasColumnName("NameComplete")
                 .HasColumnType("NVARCHAR")
@@ -28,18 +28,24 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnType("INT");
 
             builder.OwnsOne(x => x.Adress)
-                .Property(x =>x.City)
+                .Property(x => x.City)
                 .IsRequired()
                 .HasColumnName("City")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(100);
-                
+
             builder.OwnsOne(x => x.Adress)
-                .Property(x =>x.Reference)
+                .Property(x => x.Reference)
                 .IsRequired()
                 .HasColumnName("Reference")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(100);
+
+            //Relacionamento com a recomendação 
+            // builder.HasMany(x => x.Recommendations)
+            //     .WithOne(x => x.Member)
+            //     .HasForeignKey("RecommendationId")
+            //     .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

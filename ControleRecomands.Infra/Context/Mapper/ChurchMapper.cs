@@ -37,6 +37,12 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(200);
 
+            //Relacionameito com as recomendações
+            // builder.HasMany(x => x.Recommendations)
+            //     .WithOne(x => x.Church)
+            //     .HasForeignKey("RecommendationId")
+            //     .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

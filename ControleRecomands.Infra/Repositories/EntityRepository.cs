@@ -1,25 +1,27 @@
 using ControleRecomands.Infra.Context;
+using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.ValueObject;
 using ControleRecommads.Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleRecomands.Infra.Repositories
 {
-    public class ValueObjectRepository<V> : IValueObjectRepository<V> where V : ValueObject
+    public class EntityRepository<E> : IEntityRepository<E> where E : Entity
     {
         private readonly RecommendationDbContext _context;
-        private readonly DbSet<V> _dbSet;
+        private readonly DbSet<E> _dbSet;
 
-        public ValueObjectRepository(RecommendationDbContext context)
+        public EntityRepository(RecommendationDbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<V>();
+            _dbSet = _context.Set<E>();
 
         }
 
-        public void Add(V valueObject)
+
+        public void Create(E entity)
         {
-            _dbSet.Add(valueObject);
+            _dbSet.Add(entity);
         }
     }
 }

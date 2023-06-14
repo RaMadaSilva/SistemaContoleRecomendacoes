@@ -8,20 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ControleRecomands.Infra.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T : Recommendation
+    public class RepositoryBase<T> : EntityRepository<T>, IRepositoryBase<T> where T : Recommendation
     {
         private readonly RecommendationDbContext _context;
         private readonly DbSet<T> _dbSet;
-        public RepositoryBase(RecommendationDbContext context)
+        public RepositoryBase(RecommendationDbContext context) : base(context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
 
-        public void Create(T recommendation)
-        {
-            _dbSet.Add(recommendation);
-        }
         public IEnumerable<T> GetAllRecommendation()
         {
             return _dbSet.AsNoTracking();

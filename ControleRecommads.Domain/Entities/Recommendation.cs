@@ -1,5 +1,6 @@
 using ControleRecommads.Domain.Entities.Enums;
 using ControleRecommads.Domain.Entities.ValueObject;
+using Flunt.Notifications;
 using Flunt.Validations;
 
 namespace ControleRecommads.Domain.Entities;

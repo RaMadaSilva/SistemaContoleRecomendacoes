@@ -8,16 +8,15 @@ namespace ControleRecommads.Test.TestEntity;
 [TestClass]
 public class TestEntity
 {
-    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member("Rafael", "Silva", 999999),
-                new Church("Monte das Oliveita", "Maianga"));
-    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member("Paulo", "Magalhaes", 888888888, "Em frente a Fabrica da mabor"),
+    private readonly IssuedRecommendation _issued = new IssuedRecommendation(new Member(new("Rafael da Silva"), 999999, new("Zango", "Rua da Maxi")),
+        new Church(new("Mabor"), new("Cazenga", "Fabrica de Pneu")));
+    private readonly ReceivedRecommendation _receivedValid = new ReceivedRecommendation(new Member(new("Paulo Magalhaes"), 888888888, new("Vila Nova", "Vila das Gazelas")),
             new DateTime(2023, 04, 01),
-            new Church("Monte das Gazelas", "Huambo"));
+            new Church(new("Monte das Gazelas"), new("Huambo", "Cidade Nova")));
 
-    private readonly ReceivedRecommendation _receivedRecommendation = new ReceivedRecommendation(new Member("Mauro",
-        "Magalhaes", 888888888, "Em frente a Fabrica da mabor"),
-        new DateTime(2022, 04, 01),
-        new Church("Monte das Gazelas", "Huambo"));
+    private readonly ReceivedRecommendation _receivedRecommendation = new ReceivedRecommendation(new Member(new("Paulo Magalhaes"), 888888888, new("Vila Nova", "Vila das Gazelas")),
+            new DateTime(2022, 04, 01),
+            new Church(new("Monte das Gazelas"), new("Huambo", "Cidade Nova")));
 
     [TestMethod]
     [TestCategory("domain")]

@@ -7,8 +7,8 @@ public interface IUniteOfWork
 {
     IRepositoryBase<ReceivedRecommendation> ReceivedRecommendationRepository { get; }
     IRepositoryBase<IssuedRecommendation> IssuedRecommendationRepository { get; }
-    IValueObjectRepository<Member> MemberRepository { get; }
-    IValueObjectRepository<Church> ChurchRepository { get; }
+    IEntityRepository<Member> MemberRepository { get; }
+    IEntityRepository<Church> ChurchRepository { get; }
 
     void Commit();
 }

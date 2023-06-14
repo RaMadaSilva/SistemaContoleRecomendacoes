@@ -2,7 +2,6 @@ using ControleRecommads.Domain.Commands;
 using ControleRecommads.Domain.Entities;
 using ControleRecommads.Domain.Entities.ValueObject;
 using ControleRecommads.Domain.Handler;
-using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using ControleRecommads.Test.FakeRepositories;
 
 namespace ControleRecommads.Test.HandlerTest
@@ -13,11 +12,11 @@ namespace ControleRecommads.Test.HandlerTest
 
         //Este Fake não está a funcionar como esperado
 
-        private readonly IssueCommand _comand = new IssueCommand("Raul", "Mateia", 9999999, "Mabor", "Cazenga");
-        private readonly IssueCommand _ComandNew = new IssueCommand("Maria", "Manuela", 9999999, "Zango", "Viana");
+        private readonly IssueCommand _comand = new IssueCommand("Raul Mateia da Silva","Zango", "Rua da Maxi",  9999999,  "Mabor", "Cazenga", "Rua Direita do Mercado Kuanzas");
+        private readonly IssueCommand _ComandNew = new IssueCommand("Maria Manuela", "Zango","Zango 3", 923568978, "Mabor",  "Zango", "Viana");
         private readonly IssuedRecommendationHandler _handler = new IssuedRecommendationHandler(new FakeUniteOfWork());
         private readonly FakeIssuedRepository _fake = new FakeIssuedRepository();
-        private readonly Member _member = new("Raul", "Mateia", 9999999);
+        private readonly Member _member = new(new("Raul Mateia da Silva"), 923457896, new("Zango", "Rua da Maxi"));
         private readonly IssuedRecommendationHandler _handerRetorn = new IssuedRecommendationHandler(new FakeUniteOfWork());
 
         private IssuedRecommendation _selecRecommendation;

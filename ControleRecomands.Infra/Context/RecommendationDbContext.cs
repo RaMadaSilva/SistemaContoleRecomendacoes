@@ -19,10 +19,16 @@ namespace ControleRecomands.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Recommendation>().HasKey(r => r.Id);
+            mb.Entity<ReceivedRecommendation>().HasBaseType<Recommendation>();
+            mb.Entity<IssuedRecommendation>().HasBaseType<Recommendation>();
+
             mb.ApplyConfiguration(new MemberMapper());
             mb.ApplyConfiguration(new ChurchMapper());
             mb.ApplyConfiguration(new ReceivedRecommendationMapper());
             mb.ApplyConfiguration(new IssuedRecommendationMapper());
+
+            base.OnModelCreating(mb);
         }
     }
 }

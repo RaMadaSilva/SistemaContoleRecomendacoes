@@ -10,7 +10,6 @@ namespace ControleRecomands.Infra.Context.Mapper
         public void Configure(EntityTypeBuilder<IssuedRecommendation> builder)
         {
             builder.ToTable("IssuedRecommendation");
-            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
                 .IsRequired()
@@ -39,10 +38,17 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("RecommendationGenerateUrl")
                 .HasMaxLength(300);
 
-            //Realicionamento com a Igreja 
-            builder.HasOne(x => x.Church).WithMany(x =>x.Recommendations)
-            // Relacionamento com o Membro
+            //Relacionamento com membro
+            builder.HasOne(r => r.Member)
+                .WithMany()
+                .HasForeignKey("ChurchId")
+                .OnDelete(DeleteBehavior.Cascade);
 
+            //Relacionamento com A Igreja 
+            builder.HasOne(r => r.Church)
+                .WithMany()
+                .HasForeignKey("MemberId")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
