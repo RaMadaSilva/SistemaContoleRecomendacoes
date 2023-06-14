@@ -4,6 +4,10 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Member : Entity
     {
+        private Member()
+        {
+
+        }
         public Member(Name name, uint phone, Adress adress)
         {
             AddNotifications(new Contract<Name>()

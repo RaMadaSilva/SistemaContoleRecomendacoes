@@ -2,7 +2,9 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 {
     public class Church : Entity
     {
-
+        protected Church()
+        {
+        }
         public Church(Name name, Adress adress)
         {
             name.AddNotifications(Notifications);
