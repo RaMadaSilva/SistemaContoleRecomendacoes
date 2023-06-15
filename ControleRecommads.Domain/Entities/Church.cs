@@ -12,13 +12,21 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 
             Name = name;
             Adress = adress;
-            Recommendations = new List<Recommendation>();
+
+            IssuedRecommendations = new List<IssuedRecommendation>();
+            ReceivedRecommendations = new List<ReceivedRecommendation>();
         }
 
         public Name Name { get; private set; }
         public Adress Adress { get; private set; }
-        public IList<Recommendation> Recommendations { get; private set; }
-        public void AddRecommendations(Recommendation recommendation)
-            => Recommendations.Add(recommendation);
+        public IList<IssuedRecommendation> IssuedRecommendations { get; private set; }
+        public IList<ReceivedRecommendation> ReceivedRecommendations { get; private set; }
+
+        public void AddIssuedRecommendations(IssuedRecommendation recommendation)
+            => IssuedRecommendations.Add(recommendation);
+
+        public void AddReceivedRecommendations(ReceivedRecommendation recommendation)
+            => ReceivedRecommendations.Add(recommendation);
+
     }
 }

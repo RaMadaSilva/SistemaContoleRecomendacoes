@@ -40,12 +40,6 @@ namespace ControleRecomands.Infra.Context.Mapper
                 .HasColumnName("Reference")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(100);
-
-            //Relacionamento
-            builder.HasMany(x => x.Recommendations)
-                .WithOne(x => x.Member)
-                .HasForeignKey("RecomendationId")
-                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
