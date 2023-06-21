@@ -1,5 +1,5 @@
 using ControleRecommads.Domain.Commands;
-using ControleRecommads.Domain.Handler;
+using ControleRecommads.Domain.Handler.Interface;
 using ControleRecommads.Domain.IRepositories.IUniteOfWork;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +10,9 @@ namespace ControleRecommands.Api.Controllers
     public class ReceivedRecommendationController : ControllerBase
     {
         private readonly IUniteOfWork _uniteOfWork;
-        private readonly ReceivedRecommendationHandler _handle;
+        private readonly IHandler<ReceiveCommand> _handle;
 
-        public ReceivedRecommendationController(IUniteOfWork uniteOfWork, ReceivedRecommendationHandler handle)
+        public ReceivedRecommendationController(IUniteOfWork uniteOfWork, IHandler<ReceiveCommand> handle)
         {
             _uniteOfWork = uniteOfWork;
             _handle = handle;

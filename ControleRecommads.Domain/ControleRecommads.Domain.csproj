@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="IRepositories\IReceivedRecommendationRepository.cs~RF61d1764.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Flunt" Version="2.0.5" />
   </ItemGroup>
 

@@ -8,7 +8,7 @@ namespace ControleRecomands.Infra.Repositories.UniteOfWork;
 
 public class UniteOfWork : IUniteOfWork
 {
-    private IRepositoryBase<ReceivedRecommendation> receivedRecommendationRepository;
+    private IReceivedRecommendationRepository receivedRecommendationRepository;
     private IRepositoryBase<IssuedRecommendation> issuedRecommendationRepository;
     private IEntityRepository<Member> memberRepository;
     private IEntityRepository<Church> churchRepository;
@@ -20,13 +20,7 @@ public class UniteOfWork : IUniteOfWork
         _context = context;
     }
 
-    public IRepositoryBase<ReceivedRecommendation> ReceivedRecommendationRepository
-    {
-        get
-        {
-            return receivedRecommendationRepository ?? new RepositoryBase<ReceivedRecommendation>(_context);
-        }
-    }
+
 
     public IRepositoryBase<IssuedRecommendation> IssuedRecommendationRepository
     {
@@ -50,6 +44,13 @@ public class UniteOfWork : IUniteOfWork
         {
             return churchRepository ?? new EntityRepository<Church>(_context);
         }
+    }
+
+    public IReceivedRecommendationRepository ReceivedRecommendationRepository 
+    { 
+            get { 
+            return receivedRecommendationRepository ?? new ReceivedRecommendationRepository(_context);  
+            }
     }
 
     public void Commit()

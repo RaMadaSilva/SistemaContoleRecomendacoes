@@ -1,6 +1,7 @@
-﻿using Flunt.Validations;
+﻿using ControleRecommads.Domain.Entities.ValueObject;
+using Flunt.Validations;
 
-namespace ControleRecommads.Domain.Entities.ValueObject
+namespace ControleRecommads.Domain.Entities
 {
     public class Member : Entity
     {

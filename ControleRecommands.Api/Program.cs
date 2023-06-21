@@ -20,13 +20,13 @@ builder.Services.AddControllers();
 var connetions = builder.Configuration.GetConnectionString("connectionDb");
 
 builder.Services.AddDbContext<RecommendationDbContext>(options => options.UseSqlServer(connetions));
-builder.Services.AddTransient<IUniteOfWork, UniteOfWork>();
-builder.Services.AddTransient<IHandler<ReceiveCommand>, ReceivedRecommendationHandler>();
-builder.Services.AddTransient<IHandler<RetornRecommendationCommand>, ReceivedRecommendationHandler>();
-builder.Services.AddScoped<ICommandResult, CommandResult>(); 
-builder.Services.AddTransient<IRepositoryBase<ReceivedRecommendation>, RepositoryBase<ReceivedRecommendation>>();
-builder.Services.AddTransient<IEntityRepository<Member>, EntityRepository<Member>>();
-builder.Services.AddTransient<IEntityRepository<Church>,  EntityRepository<Church>>();
+builder.Services.AddScoped<IUniteOfWork, UniteOfWork>();
+builder.Services.AddScoped<IHandler<ReceiveCommand>, ReceivedRecommendationHandler>();
+builder.Services.AddScoped<IHandler<RetornRecommendationCommand>, ReceivedRecommendationHandler>();
+//.Services.AddScoped<ICommandResult, CommandResult>();
+builder.Services.AddScoped<IRepositoryBase<ReceivedRecommendation>, RepositoryBase<ReceivedRecommendation>>();
+builder.Services.AddScoped<IEntityRepository<Member>, EntityRepository<Member>>();
+builder.Services.AddScoped<IEntityRepository<Church>, EntityRepository<Church>>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

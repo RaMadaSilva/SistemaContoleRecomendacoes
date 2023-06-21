@@ -16,6 +16,8 @@ namespace ControleRecommads.Test.FakeRepositories
 
         public IEntityRepository<Church> ChurchRepository => throw new NotImplementedException();
 
+        IReceivedRecommendationRepository IUniteOfWork.ReceivedRecommendationRepository => throw new NotImplementedException();
+
         public void Commit()
         {
             throw new NotImplementedException();

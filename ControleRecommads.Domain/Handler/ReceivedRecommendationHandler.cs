@@ -37,7 +37,7 @@ namespace ControleRecommads.Domain.Handler
             member.AddNotifications(Notifications);
             church.AddNotifications(Notifications);
 
-            var recommendation = _uow.ReceivedRecommendationRepository.GetRecommendationValid(member);
+            var recommendation = _uow.ReceivedRecommendationRepository.GetReceivedRecommendationValid(member);
 
             if (recommendation != null)
                 return new CommandResult(false, "Este Membro já tem uma recomandação valida", recommendation);
@@ -53,7 +53,7 @@ namespace ControleRecommads.Domain.Handler
 
             _uow.ChurchRepository.Create(church);
             _uow.MemberRepository.Create(member);
-            _uow.ReceivedRecommendationRepository.Create(received);
+            _uow.ReceivedRecommendationRepository.Create(received); 
             _uow.Commit();
 
             //4# retornar o resultado 

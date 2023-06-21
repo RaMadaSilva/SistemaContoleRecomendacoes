@@ -1,4 +1,4 @@
-using ControleRecommads.Domain.Entities.ValueObject;
+using ControleRecommads.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

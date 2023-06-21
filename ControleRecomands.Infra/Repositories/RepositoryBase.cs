@@ -26,6 +26,7 @@ namespace ControleRecomands.Infra.Repositories
         {
             return _dbSet.Where(predicate);
         }
+
         public T GetRecommendation(Guid id)
         {
             var recommendation = _dbSet.Find(id);
@@ -35,7 +36,7 @@ namespace ControleRecomands.Infra.Repositories
         }
         public T GetRecommendationValid(Member member)
         {
-            var recommendation = _dbSet.Find(member);
+            T recommendation = _dbSet.Find(member);
             if (recommendation is null || recommendation.State != ERecommendationState.valido)
                 return null;
             return recommendation;

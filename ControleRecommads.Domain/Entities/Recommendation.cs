@@ -23,7 +23,6 @@ public abstract class Recommendation : Entity
         .IsGreaterThan(ValidateDate, EntryDate, "Data Invalida!"));
 
         Church.AddNotifications(Notifications);
-
     }
 
     public Member Member { get; private set; }

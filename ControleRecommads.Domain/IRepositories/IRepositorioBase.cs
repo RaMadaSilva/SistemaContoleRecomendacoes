@@ -12,7 +12,8 @@ namespace ControleRecommads.Domain.IRepositories
         IEnumerable<T> GetAllRecommendationWithState(Expression<Func<T, bool>> predicate);
         T GetRecommendation(Guid id);
         T GetRecommendationValid(Member member);
-        void Create(T recommendation);
-        void UpdateRecommendation(T recommendation);
+
+       void Create(T recommendation);
+       void UpdateRecommendation(T recommendation);
     }
 }
