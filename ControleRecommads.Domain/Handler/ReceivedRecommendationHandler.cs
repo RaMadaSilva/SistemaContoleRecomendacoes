@@ -1,3 +1,4 @@
+using System;
 using ControleRecommads.Domain.Commands;
 using ControleRecommads.Domain.Commands.Interfaces;
 using ControleRecommads.Domain.Entities;
@@ -40,7 +41,12 @@ namespace ControleRecommads.Domain.Handler
             var recommendation = _uow.ReceivedRecommendationRepository.GetReceivedRecommendationValid(member);
 
             if (recommendation != null)
-                return new CommandResult(false, "Este Membro já tem uma recomandação valida", recommendation);
+                return new CommandResult
+                {
+                    Sucesses = false,
+                    Mensage = "Este Membro já tem uma recomandação valida",
+                    Data = recommendation
+                };
 
             //2# Caso não exista  Criar a ReceivedRecommendation
             var received = new ReceivedRecommendation(member, command.DataReceive, church);
@@ -49,16 +55,26 @@ namespace ControleRecommads.Domain.Handler
 
             //3# Salva no bsnco de dados
             if (!IsValid)
-                return new CommandResult(false, "Não foi possivel salvar a recomendação recebida", Notifications);
+                return new CommandResult
+                {
+                    Sucesses = false,
+                    Mensage = "Este Membro já tem uma recomandação valida",
+                    Data = recommendation
+                };
 
             _uow.ChurchRepository.Create(church);
             _uow.MemberRepository.Create(member);
-            _uow.ReceivedRecommendationRepository.Create(received); 
+            _uow.ReceivedRecommendationRepository.Create(received);
             _uow.Commit();
 
             //4# retornar o resultado 
 
-            return new CommandResult(true, "Recomendação salva com sucesso", received);
+            return new CommandResult
+            {
+                Sucesses = true,
+                Mensage = "Recomendação salva com sucesso",
+                Data = received
+            };
         }
 
         public ICommandResult Handler(RetornRecommendationCommand command)
@@ -69,7 +85,12 @@ namespace ControleRecommads.Domain.Handler
             if (recommendation == null || recommendation.State != ERecommendationState.valido)
             {
                 AddNotification("IssuedRecommendation", "Recomendação Invalida ou inexistente");
-                return new CommandResult(false, "Não foi possivel actualizar a recomendação", Notifications);
+                return new CommandResult
+                {
+                    Sucesses = false,
+                    Mensage = "Não foi possivel actualizar a recomendação",
+                    Data = Notifications
+                };
             }
 
             //Caso Exista a recomendação e o seu estado seja valida
@@ -77,7 +98,12 @@ namespace ControleRecommads.Domain.Handler
             _uow.ReceivedRecommendationRepository.UpdateRecommendation(recommendation);
             _uow.Commit();
 
-            return new CommandResult(true, "Recomendação actualizada com sucesso", recommendation);
+            return new CommandResult
+            {
+                Sucesses = true,
+                Mensage = "Recomendação actualizada com sucesso",
+                Data = recommendation
+            };
         }
     }
 }

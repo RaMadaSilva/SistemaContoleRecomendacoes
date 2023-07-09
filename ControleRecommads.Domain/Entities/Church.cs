@@ -19,8 +19,8 @@ namespace ControleRecommads.Domain.Entities.ValueObject
 
         public Name Name { get; private set; }
         public Adress Adress { get; private set; }
-        public IList<IssuedRecommendation> IssuedRecommendations { get; private set; }
-        public IList<ReceivedRecommendation> ReceivedRecommendations { get; private set; }
+        public ICollection<IssuedRecommendation> IssuedRecommendations { get; private set; }
+        public ICollection<ReceivedRecommendation> ReceivedRecommendations { get; private set; }
 
         public void AddIssuedRecommendations(IssuedRecommendation recommendation)
             => IssuedRecommendations.Add(recommendation);

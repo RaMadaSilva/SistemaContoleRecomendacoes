@@ -13,7 +13,7 @@ namespace ControleRecommads.Domain.IRepositories
         T GetRecommendation(Guid id);
         T GetRecommendationValid(Member member);
 
-       void Create(T recommendation);
-       void UpdateRecommendation(T recommendation);
+        void Create(T recommendation);
+        void UpdateRecommendation(T recommendation);
     }
 }

@@ -7,6 +7,8 @@ namespace ControleRecommads.Domain.Commands.Interfaces
 {
     public interface ICommandResult
     {
-        
+        bool Sucesses { get; set; }
+        string Mensage { get; set; }
+        Object Data { get; set; }
     }
 }
